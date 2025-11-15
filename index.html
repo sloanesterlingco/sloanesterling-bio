@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sloane Sterling | Future-Facing Creator & Founder</title>
+  <title>Sloane Sterling | Future Systems & Activewear</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
@@ -12,17 +12,14 @@
   <style>
     :root {
       --bg: #020617;
-      --bg-soft: #020818;
       --accent: #3b82f6;
       --accent-soft: #93c5fd;
-      --accent-muted: #64748b;
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
-      --panel-dark: #020617;
-      --panel-light: #f9fafb;
-      --outline: rgba(148, 163, 184, 0.45);
-      --shadow-soft: 0 26px 60px rgba(15, 23, 42, 0.85);
-      --radius-xl: 28px;
+      --border-soft: rgba(148, 163, 184, 0.45);
+      --panel-dark: rgba(15, 23, 42, 0.98);
+      --shadow-soft: 0 26px 60px rgba(0, 0, 0, 0.9);
+      --radius-xl: 26px;
     }
 
     * {
@@ -35,7 +32,7 @@
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
       background:
-        radial-gradient(circle at top, #0b1220, #020617 55%, #000 100%);
+        radial-gradient(circle at top, #0b1120 0, #020617 50%, #000 100%);
       color: var(--text-main);
       -webkit-font-smoothing: antialiased;
       padding: 20px 16px 40px;
@@ -58,7 +55,7 @@
       position: sticky;
       top: 10px;
       z-index: 40;
-      margin-bottom: 26px;
+      margin-bottom: 24px;
     }
 
     nav {
@@ -68,10 +65,10 @@
       gap: 16px;
       padding: 10px 18px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.88);
       backdrop-filter: blur(18px);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
     }
 
     .nav-brand {
@@ -81,7 +78,6 @@
       letter-spacing: 0.16em;
       text-transform: uppercase;
       font-size: 0.78rem;
-      color: #e5e7eb;
     }
 
     .nav-dot {
@@ -115,7 +111,7 @@
       width: 0;
       height: 2px;
       border-radius: 999px;
-      background: linear-gradient(90deg, #38bdf8, var(--accent));
+      background: linear-gradient(90deg, #22c55e, var(--accent));
       transition: width 0.18s ease-out;
     }
 
@@ -126,7 +122,7 @@
     main {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 24px;
       margin-top: 6px;
     }
 
@@ -135,12 +131,12 @@
     .hero {
       border-radius: var(--radius-xl);
       background:
-        radial-gradient(circle at top left, rgba(148, 163, 184, 0.25), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.34), transparent 65%),
-        linear-gradient(135deg, #020617, #020617 45%, #020b1f 100%);
-      border: 1px solid var(--outline);
+        radial-gradient(circle at top left, rgba(148, 163, 184, 0.32), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.38), transparent 60%),
+        linear-gradient(135deg, #020617, #020617 50%, #020b1f 100%);
+      border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
-      padding: 28px 24px 26px;
+      padding: 26px 22px 22px;
       display: grid;
       grid-template-columns: minmax(0, 2.4fr) minmax(0, 2.1fr);
       gap: 26px;
@@ -151,11 +147,11 @@
     .hero::before {
       content: "";
       position: absolute;
-      inset: -20%;
+      inset: -25%;
       background:
-        radial-gradient(circle at 20% 0%, rgba(148, 163, 184, 0.22), transparent 55%),
-        radial-gradient(circle at 90% 100%, rgba(59, 130, 246, 0.26), transparent 55%);
-      opacity: 0.8;
+        radial-gradient(circle at 15% 0%, rgba(148, 163, 184, 0.2), transparent 55%),
+        radial-gradient(circle at 85% 100%, rgba(59, 130, 246, 0.28), transparent 60%);
+      opacity: 0.7;
       mix-blend-mode: screen;
       pointer-events: none;
     }
@@ -169,13 +165,12 @@
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.22em;
-      color: var(--accent-muted);
+      color: var(--text-muted);
       margin-bottom: 8px;
     }
 
     .hero-title {
       font-size: clamp(2.2rem, 3.6vw, 2.7rem);
-      line-height: 1.05;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       margin-bottom: 10px;
@@ -188,7 +183,7 @@
     }
 
     .hero-subtitle {
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       color: var(--text-muted);
       max-width: 34rem;
       margin-bottom: 16px;
@@ -203,20 +198,12 @@
 
     .chip {
       font-size: 0.75rem;
-      padding: 5px 11px;
+      padding: 4px 10px;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.6);
       background: rgba(15, 23, 42, 0.9);
       color: #e5e7eb;
-      backdrop-filter: blur(10px);
       white-space: nowrap;
-      transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
-    }
-
-    .chip:hover {
-      border-color: rgba(129, 140, 248, 0.95);
-      box-shadow: 0 0 14px rgba(129, 140, 248, 0.8);
-      transform: translateY(-1px);
     }
 
     .hero-note {
@@ -224,63 +211,115 @@
       color: var(--text-muted);
     }
 
+    /* HERO RIGHT – ORBIT + PHOTO */
+
     .hero-right {
       position: relative;
       z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
-    .photo-card {
+    .orbit-wrapper {
       position: relative;
-      width: 190px;
-      border-radius: 32px;
-      padding: 8px 8px 10px;
-      background:
-        linear-gradient(145deg, rgba(249, 250, 251, 0.95), rgba(209, 213, 219, 0.95));
+      width: 220px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orbit-ring {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 1px solid rgba(148, 163, 184, 0.48);
       box-shadow:
-        0 18px 40px rgba(15, 23, 42, 0.85),
+        0 0 28px rgba(148, 163, 184, 0.32),
         0 0 0 1px rgba(15, 23, 42, 0.9);
     }
 
+    .orbit-inner {
+      position: absolute;
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      border: 1px dashed rgba(148, 163, 184, 0.5);
+      opacity: 0.7;
+    }
+
+    .orbit-dot {
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow:
+        0 0 16px rgba(34, 197, 94, 0.95),
+        0 0 32px rgba(34, 197, 94, 0.7);
+    }
+
+    .orbit-anim {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      animation: orbit-spin 14s linear infinite;
+    }
+
+    @keyframes orbit-spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .photo-shell {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      padding: 6px;
+      background:
+        radial-gradient(circle at top, #f9fafb, #d1d5db);
+      box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(15, 23, 42, 1);
+    }
+
     .photo-inner {
-      border-radius: 26px;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
       overflow: hidden;
-      border: 1px solid rgba(148, 163, 184, 0.5);
+      border: 2px solid #020617;
       background: #020617;
     }
 
     .photo-inner img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
     }
 
-    .photo-caption {
-      margin-top: 8px;
-      text-align: center;
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: #4b5563;
-    }
-
-    .hero-status {
+    .hero-live {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 5px 10px;
+      padding: 4px 10px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.98);
       color: var(--text-muted);
       font-size: 0.72rem;
     }
 
-    .status-dot {
+    .hero-live-dot {
       width: 7px;
       height: 7px;
       border-radius: 999px;
@@ -290,13 +329,13 @@
 
     .hero-meta {
       margin-top: 4px;
-      padding: 10px 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 9px 11px;
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
       background: rgba(15, 23, 42, 0.98);
       font-size: 0.78rem;
       width: 100%;
-      max-width: 270px;
+      max-width: 260px;
     }
 
     .hero-meta-label {
@@ -304,7 +343,7 @@
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
     .hero-meta-value {
@@ -314,10 +353,10 @@
     /* SECTIONS */
 
     section.panel {
-      border-radius: 24px;
-      background: linear-gradient(135deg, #020617, #020617 45%, #03091a 100%);
+      border-radius: 22px;
+      background: linear-gradient(135deg, #020617, #020617 45%, #030814 100%);
       border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 20px 20px 18px;
+      padding: 18px 18px 16px;
     }
 
     .section-header {
@@ -325,11 +364,11 @@
       justify-content: space-between;
       align-items: baseline;
       gap: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .section-title {
-      font-size: 1rem;
+      font-size: 0.98rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
     }
@@ -347,19 +386,20 @@
     }
 
     .section-body p + p {
-      margin-top: 10px;
+      margin-top: 9px;
     }
 
     /* Brand ecosystem */
+
     .ecosystem {
       display: grid;
       grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.35fr);
-      gap: 16px;
+      gap: 14px;
     }
 
     .eco-card {
-      border-radius: 20px;
-      padding: 16px 16px 14px;
+      border-radius: 18px;
+      padding: 14px 14px 12px;
       border: 1px solid rgba(55, 65, 81, 0.95);
       background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
       font-size: 0.88rem;
@@ -367,20 +407,14 @@
       overflow: hidden;
     }
 
-    .eco-card::before {
-      content: "";
-      position: absolute;
-      inset: -30%;
-      background:
-        radial-gradient(circle at 15% 0%, rgba(59, 130, 246, 0.3), transparent 60%),
-        radial-gradient(circle at 90% 100%, rgba(15, 23, 42, 0.95), transparent 55%);
-      opacity: 0;
-      transition: opacity 0.2s ease-out;
-      pointer-events: none;
-    }
-
-    .eco-card:hover::before {
-      opacity: 1;
+    .eco-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
+      margin-right: 6px;
+      display: inline-block;
     }
 
     .eco-tag {
@@ -404,6 +438,7 @@
 
     .eco-body {
       font-size: 0.86rem;
+      color: #e5e7eb;
     }
 
     .eco-body strong {
@@ -411,52 +446,21 @@
       font-weight: 600;
     }
 
-    /* Light medical card */
-    .eco-card.light {
-      background: var(--panel-light);
-      color: #111827;
-      border-color: #d1d5db;
-    }
-
-    .eco-card.light::before {
-      background-image:
-        linear-gradient(to right, rgba(148, 163, 184, 0.25) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(148, 163, 184, 0.25) 1px, transparent 1px);
-      background-size: 22px 22px;
-      opacity: 0.6;
-      mix-blend-mode: soft-light;
-    }
-
-    .eco-card.light .eco-tag {
-      color: #6b7280;
-    }
-
-    .eco-card.light .eco-meta {
-      color: #6b7280;
-    }
-
-    .eco-card.light .eco-body {
-      color: #111827;
-    }
-
-    .eco-card.light .eco-body strong {
-      color: #030712;
-    }
-
     /* Roadmap */
+
     .roadmap {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 8px;
+      gap: 10px;
+      margin-top: 7px;
     }
 
     .roadmap-item {
-      border-radius: 18px;
+      border-radius: 16px;
       border: 1px solid rgba(55, 65, 81, 0.95);
-      padding: 10px 11px;
+      padding: 9px 10px;
       font-size: 0.82rem;
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), #020617);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.94), #020617);
     }
 
     .roadmap-phase {
@@ -478,7 +482,7 @@
     }
 
     footer {
-      margin-top: 18px;
+      margin-top: 16px;
       font-size: 0.75rem;
       color: var(--text-muted);
       display: flex;
@@ -522,7 +526,7 @@
         align-items: flex-start;
       }
       .hero {
-        padding: 24px 18px 20px;
+        padding: 22px 16px 18px;
       }
     }
   </style>
@@ -551,8 +555,8 @@
           <div class="hero-kicker">Future-facing creator · Founder · Systems thinker</div>
           <h1 class="hero-title"><span>Sloane Sterling</span></h1>
           <p class="hero-subtitle">
-            Building at the intersection of performance, aesthetics, and experience design — 
-            from a premium women’s activewear line to medical applications that live inside 
+            Building at the intersection of performance, aesthetics, and experience design —
+            from a premium women’s activewear line to medical applications that live inside
             the systems powering modern care.
           </p>
           <div class="hero-chips">
@@ -561,20 +565,26 @@
             <span class="chip">Medical applications for public use</span>
           </div>
           <p class="hero-note">
-            Version 3 is a live brand file — the visuals, products, and systems are evolving in real time.
+            This page is a live brand file — the visuals, products, and systems are evolving in real time.
           </p>
         </div>
 
         <div class="hero-right">
-          <div class="photo-card">
-            <div class="photo-inner">
-              <img src="sloane-bio.png" alt="Portrait of Sloane Sterling" />
+          <div class="orbit-wrapper">
+            <div class="orbit-ring"></div>
+            <div class="orbit-inner"></div>
+            <div class="orbit-anim">
+              <div class="orbit-dot"></div>
             </div>
-            <div class="photo-caption">Digital-first presence</div>
+            <div class="photo-shell">
+              <div class="photo-inner">
+                <img src="sloane-bio.png" alt="Portrait of Sloane Sterling" />
+              </div>
+            </div>
           </div>
-          <div class="hero-status">
-            <span class="status-dot"></span>
-            <span>Live · In active development</span>
+          <div class="hero-live">
+            <span class="hero-live-dot"></span>
+            <span>Live · System in active build</span>
           </div>
           <div class="hero-meta">
             <div class="hero-meta-label">Brand tracks</div>
@@ -593,13 +603,13 @@
         </div>
         <div class="section-body">
           <p>
-            I’m Sloane Sterling — a forward-leaning creator and founder operating where
-            fitness, technology, and global movement intersect. My world is built around
+            I’m Sloane Sterling — a future-facing creator and founder operating where
+            fitness, technology, and global movement intersect. My work is built around
             systems: how you train, how you travel, how you work, and how the tools around
             you either accelerate or slow all of that down.
           </p>
           <p>
-            The Sloane ecosystem now expands beyond content alone. I’m in the production
+            The Sloane ecosystem expands beyond content alone. I’m in the production
             process of a premium activewear line of women’s clothing and in development on
             medical applications designed for public-domain use — tools meant to integrate
             with the common electronic medical record software most providers already use
@@ -616,7 +626,10 @@
         </div>
         <div class="section-body ecosystem">
           <article class="eco-card">
-            <div class="eco-tag">In production · Apparel</div>
+            <div class="eco-tag">
+              <span class="eco-status-dot"></span>
+              In production · Apparel
+            </div>
             <div class="eco-title">LuxeSculpt™ – Women’s Activewear Line</div>
             <div class="eco-meta">
               Status: Production process underway · Target launch: Summer 2026
@@ -630,15 +643,17 @@
                 that holds up from airport gates to heavy sets.
               </p>
               <p style="margin-top: 8px;">
-                The goal: gear that feels as considered as the systems behind it — pieces
-                that belong in a carry-on and on a competition floor, not just in passive
-                athleisure shots.
+                The intent is simple: pieces that belong in a carry-on and on a competition
+                floor, not just in passive athleisure shots.
               </p>
             </div>
           </article>
 
-          <article class="eco-card light">
-            <div class="eco-tag">In development · Medical applications</div>
+          <article class="eco-card">
+            <div class="eco-tag">
+              <span class="eco-status-dot"></span>
+              In development · Medical applications
+            </div>
             <div class="eco-title">Sloane Sterling Medical Systems</div>
             <div class="eco-meta">
               Focus: Public-domain tools · EMR integration · Workflow clarity
@@ -647,7 +662,7 @@
               <p>
                 A set of medical applications built for public-domain use and designed to
                 <strong>plug into the electronic medical record platforms</strong> most
-                providers already use. The intent: reduce friction across patient
+                providers already use. The goal is to reduce friction across patient
                 workflows, documentation, and follow-up — without asking clinicians to
                 learn yet another standalone system.
               </p>
@@ -670,15 +685,15 @@
         <div class="section-body">
           <p>
             The build is staged so each track reinforces the others: the physical line,
-            the medical layer, and the narrative that ties everything together.
+            the medical layer, and the narrative tying everything together.
           </p>
           <div class="roadmap">
             <div class="roadmap-item">
               <div class="roadmap-phase">Phase 01</div>
               <div class="roadmap-title">Foundation & presence</div>
               <div class="roadmap-note">
-                Establish visual language, personal site, and core messaging for Sloane
-                Sterling and the LuxeSculpt™ and medical verticals.
+                Establish visual language, this personal site, and core messaging for
+                LuxeSculpt™ and Sloane Sterling Medical Systems.
               </div>
             </div>
             <div class="roadmap-item">
@@ -686,17 +701,16 @@
               <div class="roadmap-title">Product & prototype</div>
               <div class="roadmap-note">
                 Move the activewear line through development and testing while shaping
-                early medical application prototypes and integration pathways into
-                existing EMR environments.
+                early medical application prototypes and EMR integration pathways.
               </div>
             </div>
             <div class="roadmap-item">
               <div class="roadmap-phase">Phase 03</div>
               <div class="roadmap-title">Launch & scale</div>
               <div class="roadmap-note">
-                Roll out the premium apparel line and release medical tools into the
-                public domain, expanding touchpoints for both patients and high-intent
-                performance communities.
+                Roll out the apparel line and release medical tools into the public domain,
+                expanding touchpoints for both patients and high-intent performance
+                communities.
               </div>
             </div>
           </div>
@@ -706,7 +720,7 @@
 
     <footer>
       <span>© <span id="year"></span> Sloane Sterling. All rights reserved.</span>
-      <span>Version 3 · Fashion-tech build.</span>
+      <span>Version 3.5 · Orbit build.</span>
     </footer>
   </div>
 
