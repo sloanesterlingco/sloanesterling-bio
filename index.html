@@ -13,12 +13,11 @@
     :root {
       --bg: #020617;
       --accent: #3b82f6;
-      --accent-soft: #93c5fd;
       --text-main: #e5e7eb;
       --text-muted: #9ca3af;
       --border-soft: rgba(148, 163, 184, 0.45);
       --panel-dark: rgba(15, 23, 42, 0.98);
-      --shadow-soft: 0 26px 60px rgba(0, 0, 0, 0.9);
+      --shadow-soft: 0 26px 60px rgba(0, 0, 0, 0.95);
       --radius-xl: 26px;
     }
 
@@ -50,7 +49,8 @@
       text-decoration: none;
     }
 
-    /* Glass nav */
+    /* GLASS NAV */
+
     .nav-shell {
       position: sticky;
       top: 10px;
@@ -65,10 +65,13 @@
       gap: 16px;
       padding: 10px 18px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(18px);
+      background: rgba(15, 23, 42, 0.55); /* translucent glass */
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--border-soft);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.85);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(15, 23, 42, 0.8);
     }
 
     .nav-brand {
@@ -131,8 +134,8 @@
     .hero {
       border-radius: var(--radius-xl);
       background:
-        radial-gradient(circle at top left, rgba(148, 163, 184, 0.32), transparent 55%),
-        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.38), transparent 60%),
+        radial-gradient(circle at top left, rgba(148, 163, 184, 0.26), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(37, 99, 235, 0.36), transparent 65%),
         linear-gradient(135deg, #020617, #020617 50%, #020b1f 100%);
       border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
@@ -149,9 +152,9 @@
       position: absolute;
       inset: -25%;
       background:
-        radial-gradient(circle at 15% 0%, rgba(148, 163, 184, 0.2), transparent 55%),
-        radial-gradient(circle at 85% 100%, rgba(59, 130, 246, 0.28), transparent 60%);
-      opacity: 0.7;
+        radial-gradient(circle at 12% 0%, rgba(148, 163, 184, 0.18), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(59, 130, 246, 0.26), transparent 60%);
+      opacity: 0.8;
       mix-blend-mode: screen;
       pointer-events: none;
     }
@@ -224,31 +227,41 @@
 
     .orbit-wrapper {
       position: relative;
-      width: 220px;
-      height: 220px;
+      width: 230px;
+      height: 230px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .orbit-ring {
+    /* Outer thin ring */
+    .orbit-ring.outer {
       position: absolute;
-      width: 200px;
-      height: 200px;
+      width: 210px;
+      height: 210px;
       border-radius: 50%;
-      border: 1px solid rgba(148, 163, 184, 0.48);
+      border: 1px solid rgba(248, 250, 252, 0.92);
       box-shadow:
-        0 0 28px rgba(148, 163, 184, 0.32),
-        0 0 0 1px rgba(15, 23, 42, 0.9);
+        0 0 24px rgba(248, 250, 252, 0.35);
     }
 
-    .orbit-inner {
+    /* Inner dashed ring */
+    .orbit-ring.inner {
       position: absolute;
-      width: 148px;
-      height: 148px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      border: 1px dashed rgba(148, 163, 184, 0.5);
-      opacity: 0.7;
+      border: 1px dashed rgba(248, 250, 252, 0.8);
+      opacity: 0.85;
+    }
+
+    /* Track for green dot – between the rings */
+    .orbit-track {
+      position: absolute;
+      width: 195px;
+      height: 195px;
+      border-radius: 50%;
+      animation: orbit-spin 14s linear infinite;
     }
 
     .orbit-dot {
@@ -261,22 +274,16 @@
       border-radius: 999px;
       background: #22c55e;
       box-shadow:
-        0 0 16px rgba(34, 197, 94, 0.95),
-        0 0 32px rgba(34, 197, 94, 0.7);
-    }
-
-    .orbit-anim {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      animation: orbit-spin 14s linear infinite;
+        0 0 18px rgba(34, 197, 94, 0.95),
+        0 0 40px rgba(34, 197, 94, 0.7);
     }
 
     @keyframes orbit-spin {
       from { transform: rotate(0deg); }
       to { transform: rotate(360deg); }
     }
+
+    /* Portrait */
 
     .photo-shell {
       position: relative;
@@ -571,9 +578,9 @@
 
         <div class="hero-right">
           <div class="orbit-wrapper">
-            <div class="orbit-ring"></div>
-            <div class="orbit-inner"></div>
-            <div class="orbit-anim">
+            <div class="orbit-ring outer"></div>
+            <div class="orbit-ring inner"></div>
+            <div class="orbit-track">
               <div class="orbit-dot"></div>
             </div>
             <div class="photo-shell">
@@ -720,7 +727,7 @@
 
     <footer>
       <span>© <span id="year"></span> Sloane Sterling. All rights reserved.</span>
-      <span>Version 3.5 · Orbit build.</span>
+      <span>Version 3.6 · Orbit build.</span>
     </footer>
   </div>
 
