@@ -55,7 +55,7 @@
       position: sticky;
       top: 10px;
       z-index: 40;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     nav {
@@ -125,7 +125,7 @@
     main {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 30px;
       margin-top: 6px;
     }
 
@@ -139,10 +139,10 @@
         linear-gradient(135deg, #020617, #020617 50%, #020b1f 100%);
       border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
-      padding: 26px 22px 22px;
+      padding: 30px 26px 26px;
       display: grid;
       grid-template-columns: minmax(0, 2.4fr) minmax(0, 2.1fr);
-      gap: 26px;
+      gap: 32px;
       position: relative;
       overflow: hidden;
     }
@@ -169,14 +169,14 @@
       text-transform: uppercase;
       letter-spacing: 0.22em;
       color: var(--text-muted);
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .hero-title {
       font-size: clamp(2.2rem, 3.6vw, 2.7rem);
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .hero-title span {
@@ -186,10 +186,10 @@
     }
 
     .hero-subtitle {
-      font-size: 0.96rem;
+      font-size: 0.94rem;
       color: var(--text-muted);
-      max-width: 34rem;
-      margin-bottom: 16px;
+      max-width: 32rem;
+      margin-bottom: 18px;
     }
 
     .hero-chips {
@@ -212,6 +212,7 @@
     .hero-note {
       font-size: 0.8rem;
       color: var(--text-muted);
+      max-width: 30rem;
     }
 
     /* HERO RIGHT – ORBIT + PHOTO */
@@ -222,60 +223,69 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .orbit-wrapper {
       position: relative;
-      width: 230px;
-      height: 230px;
+      width: 320px;   /* 50% larger system */
+      height: 320px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    /* Outer thin ring */
-    .orbit-ring.outer {
+    /* outermost faint ring */
+    .orbit-ring.outer-faint {
+      position: absolute;
+      width: 290px;
+      height: 290px;
+      border-radius: 50%;
+      border: 1px solid rgba(248, 250, 252, 0.16);
+      box-shadow: 0 0 30px rgba(15, 23, 42, 0.9);
+    }
+
+    /* middle solid ring (inner #1) */
+    .orbit-ring.solid {
+      position: absolute;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 1px solid rgba(248, 250, 252, 0.92);
+      box-shadow: 0 0 24px rgba(248, 250, 252, 0.35);
+    }
+
+    /* inner dashed ring (inner #2) */
+    .orbit-ring.dashed {
       position: absolute;
       width: 210px;
       height: 210px;
       border-radius: 50%;
-      border: 1px solid rgba(248, 250, 252, 0.92);
-      box-shadow:
-        0 0 24px rgba(248, 250, 252, 0.35);
+      border: 1px dashed rgba(248, 250, 252, 0.85);
+      opacity: 0.9;
     }
 
-    /* Inner dashed ring */
-    .orbit-ring.inner {
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 1px dashed rgba(248, 250, 252, 0.8);
-      opacity: 0.85;
-    }
-
-    /* Track for green dot – between the rings */
+    /* Track for green dot – between solid & dashed rings */
     .orbit-track {
       position: absolute;
-      width: 195px;
-      height: 195px;
+      width: 230px;
+      height: 230px;
       border-radius: 50%;
       animation: orbit-spin 14s linear infinite;
     }
 
     .orbit-dot {
       position: absolute;
-      top: -6px;
+      top: -7px;
       left: 50%;
       transform: translateX(-50%);
-      width: 10px;
-      height: 10px;
+      width: 12px;
+      height: 12px;
       border-radius: 999px;
       background: #22c55e;
       box-shadow:
-        0 0 18px rgba(34, 197, 94, 0.95),
-        0 0 40px rgba(34, 197, 94, 0.7);
+        0 0 22px rgba(34, 197, 94, 0.98),
+        0 0 44px rgba(34, 197, 94, 0.78);
     }
 
     @keyframes orbit-spin {
@@ -287,14 +297,14 @@
 
     .photo-shell {
       position: relative;
-      width: 200px;
-      height: 200px;
+      width: 230px;
+      height: 230px;
       border-radius: 50%;
-      padding: 6px;
+      padding: 7px;
       background:
         radial-gradient(circle at top, #f9fafb, #d1d5db);
       box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.9),
+        0 24px 50px rgba(0, 0, 0, 0.95),
         0 0 0 1px rgba(15, 23, 42, 1);
     }
 
@@ -317,32 +327,32 @@
     .hero-live {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 4px 10px;
+      gap: 7px;
+      padding: 5px 12px;
       border-radius: 999px;
       border: 1px solid rgba(148, 163, 184, 0.9);
       background: rgba(15, 23, 42, 0.98);
-      color: var(--text-muted);
-      font-size: 0.72rem;
+      color: #e5e7eb;
+      font-size: 0.74rem;
     }
 
     .hero-live-dot {
-      width: 7px;
-      height: 7px;
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 14px rgba(34, 197, 94, 0.95);
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.98);
     }
 
     .hero-meta {
       margin-top: 4px;
-      padding: 9px 11px;
+      padding: 9px 12px;
       border-radius: 16px;
       border: 1px solid rgba(148, 163, 184, 0.7);
       background: rgba(15, 23, 42, 0.98);
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       width: 100%;
-      max-width: 260px;
+      max-width: 270px;
     }
 
     .hero-meta-label {
@@ -363,7 +373,7 @@
       border-radius: 22px;
       background: linear-gradient(135deg, #020617, #020617 45%, #030814 100%);
       border: 1px solid rgba(31, 41, 55, 0.9);
-      padding: 18px 18px 16px;
+      padding: 20px 18px 18px;
     }
 
     .section-header {
@@ -371,7 +381,7 @@
       justify-content: space-between;
       align-items: baseline;
       gap: 12px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     .section-title {
@@ -533,7 +543,7 @@
         align-items: flex-start;
       }
       .hero {
-        padding: 22px 16px 18px;
+        padding: 24px 18px 20px;
       }
     }
   </style>
@@ -578,8 +588,9 @@
 
         <div class="hero-right">
           <div class="orbit-wrapper">
-            <div class="orbit-ring outer"></div>
-            <div class="orbit-ring inner"></div>
+            <div class="orbit-ring outer-faint"></div>
+            <div class="orbit-ring solid"></div>
+            <div class="orbit-ring dashed"></div>
             <div class="orbit-track">
               <div class="orbit-dot"></div>
             </div>
@@ -727,7 +738,7 @@
 
     <footer>
       <span>© <span id="year"></span> Sloane Sterling. All rights reserved.</span>
-      <span>Version 3.6 · Orbit build.</span>
+      <span>Version 3.7 · Orbit build.</span>
     </footer>
   </div>
 
