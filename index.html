@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sloane Sterling | Bio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Sloane Sterling – future-focused creator at the intersection of technology, entrepreneurialism, and global influence."
+  />
+  <style>
+    :root {
+      --bg: #020617;
+      --bg-alt: #020617;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, 0.18);
+      --accent-strong: #60a5fa;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --radius-xl: 18px;
+      --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #0b1120 0, #020617 45%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      padding: 24px 16px 32px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 960px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 26px;
+      font-size: 0.8rem;
+    }
+
+    .brand {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      margin-left: 16px;
+      position: relative;
+      padding-bottom: 3px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    nav a:first-child {
+      margin-left: 0;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #38bdf8, var(--accent));
+      transition: width 0.16s ease-out;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .hero {
+      border-radius: 26px;
+      padding: 30px 20px 26px;
+      background:
+        radial-gradient(circle at top, rgba(37, 99, 235, 0.18), transparent 55%),
+        radial-gradient(circle at bottom, rgba(15, 23, 42, 0.9), #020617);
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      border: 1px solid rgba(148, 163, 184, 0.16);
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .hero-orbit-inner {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px dashed rgba(96, 165, 250, 0.4);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .hero-orbit-dot {
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent-strong);
+      box-shadow: 0 0 20px rgba(96, 165, 250, 0.9);
+      top: 14%;
+      right: 20%;
+    }
+
+    .hero-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-photo-wrap {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .hero-photo-border {
+      width: 148px;
+      height: 148px;
+      border-radius: 999px;
+      padding: 2px;
+      background: radial-gradient(circle at top, #e5e7eb, var(--accent-strong));
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 999px;
+      object-fit: cover;
+      display: block;
+      border: 3px solid #020617;
+      background: #020617;
+    }
+
+    .hero-status-pill {
+      position: absolute;
+      bottom: 0;
+      right: -4px;
+      transform: translateY(40%);
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      padding: 4px 8px 4px 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .hero-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero-name {
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .hero-name span {
+      background: linear-gradient(90deg, #e5e7eb, #93c5fd);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-tagline {
+      font-size: 0.9rem;
+      color: var(--muted);
+      max-width: 28rem;
+      margin-bottom: 14px;
+    }
+
+    .hero-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+      color: #d1d5db;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero-subnote {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    section {
+      border-radius: 20px;
+      background: linear-gradient(
+        140deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(2, 6, 23, 0.96)
+      );
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      padding: 20px 18px 18px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #d1d5db;
+    }
+
+    .section-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .section-body {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .section-body p + p {
+      margin-top: 10px;
+    }
+
+    .future-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .future-card {
+      border-radius: 14px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      background: radial-gradient(circle at top, var(--accent-soft), #020617);
+      padding: 10px 10px 10px;
+      font-size: 0.8rem;
+    }
+
+    .future-tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .future-title {
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: #e5e7eb;
+    }
+
+    .future-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 16px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 18px 14px 26px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      nav a {
+        margin-left: 0;
+      }
+
+      .hero {
+        padding: 26px 18px 20px;
+      }
+
+      .future-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">SLOANE STERLING</div>
+      <nav>
+        <a href="#bio">Bio</a>
+        <a href="#future">Future</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-orbit">
+          <div class="hero-orbit-inner"></div>
+          <div class="hero-orbit-dot"></div>
+        </div>
+
+        <div class="hero-label">Future-facing creator & founder</div>
+
+        <div class="hero-photo-wrap" aria-label="Photo of Sloane Sterling">
+          <div class="hero-photo-border">
+            <img
+              src="sloane-bio.png"
+              alt="Portrait of Sloane Sterling with pastel pink hair"
+              class="hero-photo"
+            />
+          </div>
+          <div class="hero-status-pill">
+            <span class="hero-status-dot"></span>
+            <span>Online • Building the next phase</span>
+          </div>
+        </div>
+
+        <h1 class="hero-name"><span>Sloane Sterling</span></h1>
+        <p class="hero-tagline">
+          A digital-first presence at the intersection of technology, entrepreneurialism,
+          and global influence — designed for what comes next, not what already exists.
+        </p>
+
+        <div class="hero-pill-row">
+          <span class="chip">AI-native creator</span>
+          <span class="chip">Performance & lifestyle</span>
+          <span class="chip">Global, always in motion</span>
+        </div>
+
+        <p class="hero-subnote">
+          This is an early version of the Sloane ecosystem. The surface is minimal on purpose —
+          the build is happening behind the scenes.
+        </p>
+      </section>
+
+      <section id="bio">
+        <div class="section-header">
+          <h2 class="section-title">Bio</h2>
+          <span class="section-sub">Origin file</span>
+        </div>
+        <div class="section-body">
+          <p>
+            I’m Sloane Sterling — a future-focused creator and brand built around high
+            performance, clean aesthetics, and global mobility. I operate at the
+            crossroads of technology, entrepreneurial experimentation, and digital
+            influence, using systems and storytelling to turn ambition into something
+            you can actually see.
+          </p>
+          <p>
+            My world is equal parts training, travel, and tech: structured routines,
+            carry-on-only flights, and AI-native workflows that compress the distance
+            between idea and execution. This site is the anchor point for that world:
+            a simple, quiet surface for a much louder build underneath.
+          </p>
+        </div>
+      </section>
+
+      <section id="future">
+        <div class="section-header">
+          <h2 class="section-title">Future Developments</h2>
+          <span class="section-sub">Roadmap snapshot</span>
+        </div>
+        <div class="section-body">
+          <p>
+            The focus right now is infrastructure — shaping the systems, visuals, and
+            experiences that will sit under the Sloane Sterling name. Here’s a high-level
+            view of what’s in motion:
+          </p>
+
+          <div class="future-grid">
+            <article class="future-card">
+              <div class="future-tag">In research</div>
+              <div class="future-title">Brand ecosystem</div>
+              <div class="future-note">
+                Defining how the digital brand, physical experiences, and future product
+                launches speak to each other as one cohesive system.
+              </div>
+            </article>
+
+            <article class="future-card">
+              <div class="future-tag">Exploration</div>
+              <div class="future-title">Global presence</div>
+              <div class="future-note">
+                Mapping content and community touchpoints across cities, time zones,
+                and platforms — optimized for people who move fast and think long-term.
+              </div>
+            </article>
+
+            <article class="future-card">
+              <div class="future-tag">Later phase</div>
+              <div class="future-title">Product layer</div>
+              <div class="future-note">
+                Preparing the groundwork for future physical and digital drops aligned
+                with performance, travel, and intelligent daily rituals.
+              </div>
+            </article>
+          </div>
+
+          <p style="margin-top: 10px; font-size: 0.82rem; color: #9ca3af;">
+            This page will stay simple by design. As new chapters go live — launches,
+            collaborations, or full site builds — they’ll branch out from here.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> Sloane Sterling. All rights reserved.</span>
+      <span>
+        Future links:
+        <a href="#" aria-disabled="true">Social</a> ·
+        <a href="#" aria-disabled="true">Video</a> ·
+        <a href="#" aria-disabled="true">Updates</a>
+      </span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
