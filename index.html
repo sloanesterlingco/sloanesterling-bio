@@ -13,7 +13,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Favicon (animated orbit glow, optional) -->
+  <!-- Favicon -->
   <link rel="icon" type="image/webp" href="favicon_orbit_glow_transparent.webp" />
 
   <style>
@@ -43,8 +43,7 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background:
-        radial-gradient(circle at top, #e5f0ff 0, #f3f4f6 40%, #e5e7eb 100%);
+      background: radial-gradient(circle at top, #e5f0ff 0, #f3f4f6 40%, #e5e7eb 100%);
       color: var(--text-main);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
@@ -184,22 +183,28 @@
       margin-top: 8px;
     }
 
-    /* HERO */
+    /* HERO – big photo like Medicenter */
 
     .hero {
       border-radius: var(--radius-xl);
-      background:
-        radial-gradient(circle at top left, #e5edff 0, #ffffff 45%, #e5e7eb 100%);
+      background: linear-gradient(135deg, #e5f0ff 0, #ffffff 50%, #e0ecff 100%);
       border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
-      padding: 28px 26px 26px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
-      gap: 30px;
-      align-items: center;
+      padding: 0; /* we'll handle padding inside */
+      overflow: hidden;
     }
 
-    .hero-left-kicker {
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      align-items: stretch;
+    }
+
+    .hero-left {
+      padding: 28px 28px 26px;
+    }
+
+    .hero-kicker {
       font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.18em;
@@ -207,10 +212,19 @@
       margin-bottom: 10px;
     }
 
+    .hero-app-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-strong);
+      margin-bottom: 6px;
+    }
+
     .hero-title {
       font-size: clamp(2.1rem, 3.4vw, 2.6rem);
       line-height: 1.1;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .hero-title span {
@@ -223,40 +237,39 @@
       font-size: 0.98rem;
       color: var(--text-muted);
       max-width: 30rem;
-      line-height: 1.7;
-      margin-bottom: 16px;
+      line-height: 1.6;
+      margin-bottom: 14px;
     }
 
-    .hero-points {
+    .hero-bullets {
+      list-style: none;
       display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .hero-point {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
+      gap: 6px;
       font-size: 0.9rem;
       color: var(--text-main);
+      margin-bottom: 14px;
     }
 
-    .hero-point-bullet {
-      margin-top: 4px;
-      width: 8px;
-      height: 8px;
+    .hero-bullets li {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .hero-bullet-dot {
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
+      margin-top: 5px;
       background: linear-gradient(135deg, var(--accent), #38bdf8);
       box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
     }
 
-    .hero-actions {
+    .hero-status-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
-      margin-top: 4px;
     }
 
     .status-pill {
@@ -280,98 +293,83 @@
       box-shadow: 0 0 8px rgba(22, 163, 74, 0.8);
     }
 
-    .btn-tagline {
-      font-size: 0.8rem;
-      color: var(--text-soft);
-    }
-
     .hero-caption {
       font-size: 0.8rem;
       color: var(--text-soft);
-      margin-top: 10px;
-      max-width: 24rem;
+      margin-top: 8px;
     }
-
-    /* HERO RIGHT – BIG FOUNDER CARD */
 
     .hero-right {
-      display: flex;
-      justify-content: center;
-    }
-
-    .founder-hero {
-      border-radius: var(--radius-xl);
-      background: radial-gradient(circle at top left, #ffffff, #e0ecff);
-      border: 1px solid rgba(191, 219, 254, 0.9);
-      box-shadow: 0 18px 45px rgba(148, 163, 184, 0.45);
-      padding: 18px 18px 16px;
-      display: grid;
-      grid-template-columns: auto minmax(0, 1.5fr);
-      gap: 18px;
-      align-items: center;
-    }
-
-    .founder-hero-photo-shell {
-      width: 150px;
-      height: 150px;
-      border-radius: 999px;
-      padding: 3px;
-      background: radial-gradient(circle at top, #e0f2fe, #1d4ed8);
-      box-shadow: 0 18px 35px rgba(37, 99, 235, 0.45);
       position: relative;
+      min-height: 260px;
+      display: flex;
+      align-items: stretch;
+      justify-content: stretch;
     }
 
-    .founder-hero-photo-inner {
+    .hero-photo {
+      position: relative;
       width: 100%;
-      height: 100%;
-      border-radius: 999px;
+      background: radial-gradient(circle at top, #dbeafe, #1d4ed8 50%, #020617 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
-      border: 2px solid #ffffff;
-      background: #0f172a;
     }
 
-    .founder-hero-photo-inner img {
-      width: 100%;
+    .hero-photo img {
+      width: 105%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      object-position: center;
+      filter: saturate(1.05);
     }
 
-    .founder-hero-text {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
+    .hero-photo-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        120deg,
+        rgba(15, 23, 42, 0.25),
+        rgba(15, 23, 42, 0.05),
+        rgba(15, 23, 42, 0.0)
+      );
     }
 
-    .founder-hero-label {
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-soft);
+    .hero-photo-badge {
+      position: absolute;
+      left: 16px;
+      bottom: 16px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(191, 219, 254, 0.9);
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 4px 10px;
+      font-size: 0.78rem;
+      align-items: center;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.35);
     }
 
-    .founder-hero-name {
-      font-size: 1.05rem;
+    .hero-photo-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero-photo-name {
       font-weight: 600;
       color: #0f172a;
     }
 
-    .founder-hero-credentials {
-      font-size: 0.82rem;
+    .hero-photo-role {
       color: var(--text-muted);
-      font-weight: 500;
     }
 
-    .founder-hero-bio {
-      margin-top: 4px;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
-    /* GENERIC SECTIONS */
-
-    section.panel {
+    main section.panel {
       border-radius: var(--radius-xl);
       background: var(--bg-alt);
       border: 1px solid var(--border-soft);
@@ -410,7 +408,7 @@
       margin-top: 10px;
     }
 
-    /* FEATURES GRID */
+    /* Features grid */
 
     .features-grid {
       display: grid;
@@ -446,7 +444,7 @@
       color: var(--text-muted);
     }
 
-    /* SPLIT GRID */
+    /* Split grid */
 
     .split-grid-2 {
       display: grid;
@@ -489,7 +487,7 @@
       margin-top: 2px;
     }
 
-    /* ROADMAP / FUTURE */
+    /* Future grid */
 
     .future-grid {
       display: grid;
@@ -546,19 +544,26 @@
       text-decoration: underline;
     }
 
+    /* Responsive */
+
     @media (max-width: 900px) {
-      .hero {
+      .hero-inner {
         grid-template-columns: minmax(0, 1fr);
       }
-      .split-grid-2 {
-        grid-template-columns: minmax(0, 1fr);
+      .hero-left {
+        order: 2;
+        padding: 20px 18px 18px;
+      }
+      .hero-right {
+        order: 1;
+        min-height: 240px;
       }
       .features-grid,
       .future-grid {
         grid-template-columns: minmax(0, 1fr);
       }
-      .hero-right {
-        justify-content: flex-start;
+      .split-grid-2 {
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
@@ -573,17 +578,8 @@
       .nav-links {
         flex-wrap: wrap;
       }
-      .hero {
-        padding: 22px 18px 18px;
-      }
-      section.panel {
+      main section.panel {
         padding: 18px 16px 16px;
-      }
-      .founder-hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .founder-hero-photo-shell {
-        margin: 0 auto;
       }
     }
   </style>
@@ -603,7 +599,7 @@
         </div>
         <div class="nav-links">
           <a href="#mhv">Product</a>
-          <a href="#patients-providers">Patients & Providers</a>
+          <a href="#patients-providers">Patients &amp; Providers</a>
           <a href="#founder-story">Founder</a>
           <a href="#future">Future</a>
         </div>
@@ -615,73 +611,62 @@
     </header>
 
     <main>
-      <!-- HERO -->
+      <!-- HERO with big photo -->
       <section class="hero" id="mhv">
-        <div class="hero-left">
-          <div class="hero-left-kicker">Patient-owned health · AI-assisted clarity</div>
-          <h1 class="hero-title"><span>MyHealthVaultAI</span></h1>
-          <p class="hero-subtitle">
-            A premium, patient-owned health vault that keeps medications, history,
-            documents, and real-time monitoring in one place — and is being built to
-            speak the same language as modern EMR systems.
-          </p>
-          <div class="hero-points">
-            <div class="hero-point">
-              <div class="hero-point-bullet"></div>
-              <div>Store medications, allergies, medical/surgical/social history, and visits in a structured, portable format.</div>
-            </div>
-            <div class="hero-point">
-              <div class="hero-point-bullet"></div>
-              <div>Use Bluetooth devices for real-time health monitoring and bring that context into every appointment.</div>
-            </div>
-            <div class="hero-point">
-              <div class="hero-point-bullet"></div>
-              <div>Scan labs, imaging, and visit summaries with OCR so your health story doesn’t live in paper piles.</div>
-            </div>
-          </div>
-
-          <div class="hero-actions">
-            <div class="status-pill">
-              <span class="status-pill-dot"></span>
-              <span>In active build · Preparing for launch</span>
-            </div>
-            <div class="btn-tagline">
-              MyHealthVaultAI · Patient-first healthcare system engineered by a practicing PA-C.
-            </div>
-          </div>
-
-          <p class="hero-caption">
-            App is approximately 85–90% completed. Current focus: integrations, safety checks,
-            and launch strategy for patients and clinics.
-          </p>
-        </div>
-
-        <div class="hero-right" id="founder">
-          <div class="founder-hero">
-            <div class="founder-hero-photo-shell">
-              <div class="founder-hero-photo-inner">
-                <!-- Make sure this exists in the repo -->
-                <img src="sloane-bio.png" alt="Photo of Sloane Sterling" />
+        <div class="hero-inner">
+          <div class="hero-left">
+            <div class="hero-kicker">Patient-owned health · AI-assisted clarity</div>
+            <div class="hero-app-label">MyHealthVaultAI</div>
+            <h1 class="hero-title">
+              <span>Your health, in one intelligent vault.</span>
+            </h1>
+            <p class="hero-subtitle">
+              A premium, patient-owned health app that keeps medications, history,
+              documents, and monitoring in one place — built by a practicing PA-C
+              to fit the way modern clinics actually work.
+            </p>
+            <ul class="hero-bullets">
+              <li>
+                <span class="hero-bullet-dot"></span>
+                <span>Store meds, allergies, and full history in a clean, portable format.</span>
+              </li>
+              <li>
+                <span class="hero-bullet-dot"></span>
+                <span>Scan labs and visit summaries with OCR instead of paper piles.</span>
+              </li>
+              <li>
+                <span class="hero-bullet-dot"></span>
+                <span>Use Bluetooth devices for real-time vitals and visit context.</span>
+              </li>
+            </ul>
+            <div class="hero-status-row">
+              <div class="status-pill">
+                <span class="status-pill-dot"></span>
+                <span>In active build · Preparing for launch</span>
               </div>
             </div>
-            <div class="founder-hero-text">
-              <div class="founder-hero-label">Founder · Health care provider (PA-C)</div>
-              <div class="founder-hero-name">Sloane Sterling</div>
-              <div class="founder-hero-credentials">
-                Healthcare innovator · AI-driven patient advocacy
+            <p class="hero-caption">
+              App is approximately 85–90% completed. Current focus: integrations,
+              safety checks, and launch planning for patients and providers.
+            </p>
+          </div>
+
+          <div class="hero-right">
+            <div class="hero-photo">
+              <!-- Make sure this exists in your repo -->
+              <img src="sloane-bio.png" alt="Sloane Sterling" />
+              <div class="hero-photo-gradient"></div>
+              <div class="hero-photo-badge">
+                <span class="hero-photo-dot"></span>
+                <span class="hero-photo-name">Sloane Sterling, PA-C</span>
+                <span class="hero-photo-role">Healthcare innovator · AI-driven patient advocacy</span>
               </div>
-              <p class="founder-hero-bio">
-                I’m a practicing PA-C and systems thinker building tools that return clarity,
-                control, and confidence back to patients — while giving providers better information
-                from the start. MyHealthVaultAI is designed to live between real life and the EMR,
-                so every visit has less friction and more signal.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- WHAT IT IS / FEATURES -->
+      <!-- WHAT IT DOES -->
       <section class="panel">
         <div class="sec-header">
           <h2 class="sec-title">What MyHealthVaultAI does</h2>
@@ -689,14 +674,9 @@
         </div>
         <div class="sec-body">
           <p>
-            MyHealthVaultAI is a standalone health app patients can download themselves. It’s built
-            to return health information back to the person living the life — while respecting how
-            busy clinics and providers actually operate behind the scenes.
-          </p>
-          <p>
-            The system is being shaped to integrate with the electronic medical record platforms
-            that most providers already use, helping reduce friction at check-in, during the visit,
-            and at checkout.
+            MyHealthVaultAI is a standalone health app patients can download themselves.
+            It’s built to return information back to the person living the life — while
+            aligning with the EMR environments most providers already use.
           </p>
         </div>
 
@@ -705,8 +685,8 @@
             <div class="feature-label">01 · Health vault</div>
             <div class="feature-title">All your history in one place</div>
             <div class="feature-note">
-              Store medications, allergies, medical history, surgical history, social history,
-              hospitalizations, and office visits — in a format that can be shared cleanly and consistently.
+              Medications, allergies, surgeries, and conditions stored in a
+              shareable, structured format.
             </div>
           </article>
 
@@ -714,8 +694,8 @@
             <div class="feature-label">02 · Safety intelligence</div>
             <div class="feature-title">Medication checks &amp; alerts</div>
             <div class="feature-note">
-              Track your active medications and surface possible contraindications or points of concern
-              before they become issues to discuss with your provider.
+              Track active meds and surface possible contraindications to review
+              with your provider.
             </div>
           </article>
 
@@ -723,8 +703,8 @@
             <div class="feature-label">03 · Real-time data</div>
             <div class="feature-title">Bluetooth health monitoring</div>
             <div class="feature-note">
-              Connect compatible Bluetooth devices for real-time vitals and tracking. Bring richer context
-              into your appointments without extra effort.
+              Connect compatible devices for vitals and trends that travel with you
+              into each visit.
             </div>
           </article>
 
@@ -732,8 +712,8 @@
             <div class="feature-label">04 · Document capture</div>
             <div class="feature-title">OCR for labs &amp; imaging</div>
             <div class="feature-note">
-              Use your camera to scan lab results, imaging reports, and office visit summaries.
-              MyHealthVaultAI uses OCR to read and organize them inside your vault.
+              Scan lab results, imaging reports, and office summaries directly
+              into your vault.
             </div>
           </article>
 
@@ -741,8 +721,8 @@
             <div class="feature-label">05 · Visit workflow</div>
             <div class="feature-title">Structured visit prep</div>
             <div class="feature-note">
-              Generate a clean visit summary for check-in, reduce repeated questions at the front desk,
-              and streamline the flow from reception to checkout.
+              Walk into check-in with a clean summary so less time is spent
+              re-answering the basics.
             </div>
           </article>
 
@@ -750,8 +730,8 @@
             <div class="feature-label">06 · EMR awareness</div>
             <div class="feature-title">Built for integration</div>
             <div class="feature-note">
-              The system is being designed to align with the EMR environments most providers already use,
-              so better experiences can live inside existing workflows—not outside them.
+              Designed to map into the systems clinics already use instead of
+              fighting against them.
             </div>
           </article>
         </div>
@@ -770,10 +750,10 @@
               <span>Patients</span>
             </div>
             <div class="sec-body mini-list">
-              <p><strong>Own your story.</strong> No more trying to remember every dose, date, and surgery at every visit.</p>
+              <p><strong>Own your story.</strong></p>
               <ul>
-                <li>Keep an updated, accurate medication list.</li>
-                <li>Log allergies, surgeries, and long-term conditions.</li>
+                <li>Keep an accurate, up-to-date medication list.</li>
+                <li>Log allergies, surgeries, and chronic conditions.</li>
                 <li>Attach labs, imaging, and visit notes with OCR.</li>
                 <li>Track vitals via Bluetooth and see trends over time.</li>
               </ul>
@@ -788,7 +768,7 @@
               <p><strong>Upgrade the visit without changing your mission.</strong></p>
               <ul>
                 <li>Cleaner intake with structured, patient-provided histories.</li>
-                <li>Reduced time spent re-asking baseline questions.</li>
+                <li>Less time re-asking baseline questions.</li>
                 <li>Medication context with potential flags surfaced early.</li>
                 <li>Potential EMR-aligned data that maps into existing workflows.</li>
               </ul>
@@ -805,25 +785,20 @@
         </div>
         <div class="sec-body">
           <p>
-            I’m Sloane Sterling — a practicing PA-C and systems-minded builder focused on how health,
-            technology, and real life intersect. MyHealthVaultAI was born from seeing how much of
-            healthcare gets lost in translation: between what patients remember, what providers have
-            time to ask, and what actually ends up inside the chart.
+            I’m Sloane Sterling — a practicing PA-C and systems-minded builder focused on how
+            health, technology, and real life intersect. MyHealthVaultAI came from seeing how
+            much of healthcare gets lost between what patients remember, what providers have
+            time to ask, and what actually lands in the chart.
           </p>
           <p>
-            This app is my answer to that gap. It’s designed to give patients control over their own
-            health story while respecting the realities of a busy clinic — a way to help people
-            organize their medical lives and help providers walk into the room with better
-            information from the start.
-          </p>
-          <p>
-            The goal isn’t to replace care. It’s to clear the path so real care can happen more
-            efficiently, with less friction and more clarity on both sides of the exam room door.
+            The app is designed to give patients control over their own health story while
+            respecting the realities of a busy clinic — clearing space so real care can happen
+            with more clarity and less friction on both sides of the exam room door.
           </p>
         </div>
       </section>
 
-      <!-- FUTURE / LUXESCULPT ETC. -->
+      <!-- FUTURE -->
       <section class="panel" id="future">
         <div class="sec-header">
           <h2 class="sec-title">Future developments</h2>
@@ -831,8 +806,8 @@
         </div>
         <div class="sec-body">
           <p>
-            MyHealthVaultAI is the primary build in motion. Around it, a wider ecosystem is taking
-            shape — combining health systems, performance, and long-horizon product ideas.
+            MyHealthVaultAI is the primary build in motion. Around it, a wider ecosystem is
+            forming — combining health systems, performance, and long-horizon ideas.
           </p>
         </div>
 
@@ -841,8 +816,8 @@
             <div class="future-tag">In active build</div>
             <div class="future-title">MyHealthVaultAI · Patient app</div>
             <div class="future-note">
-              Focused on completing integrations, refining safety intelligence, and preparing a
-              controlled release that balances patient access with clinical reality.
+              Finalizing integrations, safety intelligence, and a controlled release
+              that balances access with clinical reality.
             </div>
           </article>
 
@@ -850,8 +825,8 @@
             <div class="future-tag">Long-term apparel track</div>
             <div class="future-title">LuxeSculpt™ – Activewear line</div>
             <div class="future-note">
-              A premium women’s activewear line remains on the long-horizon roadmap. Given the capital
-              intensity of apparel, the near-term priority is the digital health system that can scale faster.
+              A premium women’s activewear line remains on the long-horizon roadmap,
+              while digital health takes the near-term focus.
             </div>
           </article>
 
@@ -859,8 +834,8 @@
             <div class="future-tag">Beyond launch</div>
             <div class="future-title">Provider tools &amp; expansions</div>
             <div class="future-note">
-              Future possibilities include provider-facing dashboards, deeper EMR integrations, and additional
-              tools that translate between patient reality and chart-level documentation.
+              Future possibilities include provider dashboards, deeper EMR integrations,
+              and tools that translate between patient reality and chart-level documentation.
             </div>
           </article>
         </div>
@@ -878,4 +853,3 @@
   </script>
 </body>
 </html>
-
