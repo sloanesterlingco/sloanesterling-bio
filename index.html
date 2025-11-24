@@ -23,16 +23,17 @@
       --bg-soft: #f9fafb;
       --border-soft: #e5e7eb;
       --border-strong: #cbd5e1;
-      --accent: #2563eb;
+      --accent: #1d7ddc;
+      --accent-mid: #1866c2;
+      --accent-deep: #0e4a8f;
       --accent-soft: rgba(37, 99, 235, 0.12);
-      --accent-strong: #1d4ed8;
       --accent-green: #16a34a;
       --text-main: #0f172a;
       --text-muted: #6b7280;
-      --text-soft: #94a3b8;
+      --text-soft: #e5f2ff;
       --radius-lg: 18px;
       --radius-xl: 26px;
-      --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.12);
+      --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.18);
     }
 
     * {
@@ -43,7 +44,7 @@
 
     body {
       font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(circle at top, #e5f0ff 0, #f3f4f6 40%, #e5e7eb 100%);
+      background: #f3f4f6;
       color: var(--text-main);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
@@ -74,7 +75,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-radius: 999px;
@@ -124,14 +125,14 @@
       font-size: 0.7rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text-soft);
+      color: #64748b;
     }
 
     .nav-links {
       display: flex;
       gap: 16px;
       font-size: 0.82rem;
-      color: var(--text-muted);
+      color: #64748b;
     }
 
     .nav-links a {
@@ -147,7 +148,7 @@
       height: 2px;
       width: 0;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), #38bdf8);
+      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
       transition: width 0.18s ease-out;
     }
 
@@ -163,8 +164,8 @@
       border-radius: 999px;
       font-size: 0.78rem;
       border: 1px solid rgba(37, 99, 235, 0.3);
-      background: rgba(239, 246, 255, 0.9);
-      color: var(--accent-strong);
+      background: rgba(219, 234, 254, 0.9);
+      color: #1d4ed8;
       font-weight: 500;
     }
 
@@ -183,62 +184,53 @@
       margin-top: 8px;
     }
 
-    /* HERO – big photo like Medicenter */
+    /* HERO LIKE MEDICENTER */
 
-    .hero {
+    .hero-wrapper {
       border-radius: var(--radius-xl);
-      background: linear-gradient(135deg, #e5f0ff 0, #ffffff 50%, #e0ecff 100%);
-      border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft);
-      padding: 0; /* we'll handle padding inside */
       overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      background: linear-gradient(
+        180deg,
+        #6ec3ff 0%,
+        #3c8fe8 35%,
+        #1b4fb9 100%
+      );
+      color: white;
     }
 
-    .hero-inner {
+    .hero-main {
       display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
       align-items: stretch;
+      min-height: 280px;
     }
 
     .hero-left {
-      padding: 28px 28px 26px;
+      padding: 40px 36px 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
     }
 
     .hero-kicker {
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.22em;
       color: var(--text-soft);
-      margin-bottom: 10px;
-    }
-
-    .hero-app-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent-strong);
-      margin-bottom: 6px;
     }
 
     .hero-title {
-      font-size: clamp(2.1rem, 3.4vw, 2.6rem);
-      line-height: 1.1;
-      margin-bottom: 10px;
-    }
-
-    .hero-title span {
-      background: linear-gradient(120deg, #0f172a, #1d4ed8);
-      -webkit-background-clip: text;
-      color: transparent;
+      font-size: clamp(2.2rem, 3.7vw, 2.8rem);
+      line-height: 1.05;
+      font-weight: 600;
     }
 
     .hero-subtitle {
-      font-size: 0.98rem;
-      color: var(--text-muted);
-      max-width: 30rem;
-      line-height: 1.6;
-      margin-bottom: 14px;
+      font-size: 0.96rem;
+      max-width: 26rem;
+      color: #e0f2ff;
     }
 
     .hero-bullets {
@@ -246,8 +238,6 @@
       display: grid;
       gap: 6px;
       font-size: 0.9rem;
-      color: var(--text-main);
-      margin-bottom: 14px;
     }
 
     .hero-bullets li {
@@ -261,68 +251,53 @@
       height: 7px;
       border-radius: 999px;
       margin-top: 5px;
-      background: linear-gradient(135deg, var(--accent), #38bdf8);
-      box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+      background: #facc15;
+      box-shadow: 0 0 8px rgba(250, 204, 21, 0.8);
     }
 
-    .hero-status-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .status-pill {
+    .hero-status {
+      margin-top: 6px;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 7px 14px;
+      padding: 6px 12px;
       border-radius: 999px;
-      border: 1px solid rgba(37, 99, 235, 0.25);
-      background: rgba(239, 246, 255, 0.9);
-      color: var(--accent-strong);
-      font-size: 0.82rem;
-      font-weight: 500;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(15, 23, 42, 0.28);
+      font-size: 0.78rem;
     }
 
-    .status-pill-dot {
+    .hero-status-dot {
       width: 8px;
       height: 8px;
       border-radius: 999px;
-      background: var(--accent-green);
-      box-shadow: 0 0 8px rgba(22, 163, 74, 0.8);
-    }
-
-    .hero-caption {
-      font-size: 0.8rem;
-      color: var(--text-soft);
-      margin-top: 8px;
+      background: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
     }
 
     .hero-right {
       position: relative;
-      min-height: 260px;
       display: flex;
       align-items: stretch;
       justify-content: stretch;
+      background: radial-gradient(circle at 15% 0, #ffffff 0, #6ec3ff 45%, #1b4fb9 100%);
     }
 
     .hero-photo {
       position: relative;
       width: 100%;
-      background: radial-gradient(circle at top, #dbeafe, #1d4ed8 50%, #020617 100%);
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
       overflow: hidden;
     }
 
     .hero-photo img {
-      width: 105%;
+      width: 110%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-      filter: saturate(1.05);
+      filter: saturate(1.1);
     }
 
     .hero-photo-gradient {
@@ -330,10 +305,11 @@
       inset: 0;
       background: linear-gradient(
         120deg,
-        rgba(15, 23, 42, 0.25),
-        rgba(15, 23, 42, 0.05),
-        rgba(15, 23, 42, 0.0)
+        rgba(15, 23, 42, 0.4),
+        rgba(15, 23, 42, 0.1),
+        rgba(15, 23, 42, 0)
       );
+      pointer-events: none;
     }
 
     .hero-photo-badge {
@@ -342,14 +318,15 @@
       bottom: 16px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       border: 1px solid rgba(191, 219, 254, 0.9);
       display: inline-flex;
       flex-wrap: wrap;
       gap: 4px 10px;
       font-size: 0.78rem;
       align-items: center;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.35);
+      color: #0f172a;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.45);
     }
 
     .hero-photo-dot {
@@ -362,14 +339,59 @@
 
     .hero-photo-name {
       font-weight: 600;
-      color: #0f172a;
     }
 
     .hero-photo-role {
-      color: var(--text-muted);
+      color: #64748b;
     }
 
-    main section.panel {
+    /* COLOR STRIP (Emergency / Doctors / Hours style) */
+
+    .info-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      text-align: left;
+      color: white;
+    }
+
+    .info-card {
+      padding: 16px 18px 16px;
+      font-size: 0.9rem;
+    }
+
+    .info-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .info-card p {
+      font-size: 0.86rem;
+      line-height: 1.5;
+      opacity: 0.96;
+    }
+
+    .info-card.info-1 {
+      background: #36a3ff;
+    }
+
+    .info-card.info-2 {
+      background: #1d7ddc;
+    }
+
+    .info-card.info-3 {
+      background: #0f4d92;
+    }
+
+    .info-meta {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      opacity: 0.92;
+    }
+
+    /* PANELS BELOW */
+
+    section.panel {
       border-radius: var(--radius-xl);
       background: var(--bg-alt);
       border: 1px solid var(--border-soft);
@@ -396,19 +418,17 @@
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--text-soft);
+      color: #64748b;
     }
 
     .sec-body {
       font-size: 0.95rem;
-      color: var(--text-muted);
+      color: #64748b;
     }
 
     .sec-body p + p {
       margin-top: 10px;
     }
-
-    /* Features grid */
 
     .features-grid {
       display: grid;
@@ -429,7 +449,7 @@
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: var(--text-soft);
+      color: #94a3b8;
       margin-bottom: 4px;
     }
 
@@ -441,10 +461,8 @@
 
     .feature-note {
       font-size: 0.85rem;
-      color: var(--text-muted);
+      color: #6b7280;
     }
-
-    /* Split grid */
 
     .split-grid-2 {
       display: grid;
@@ -462,7 +480,7 @@
       font-size: 0.72rem;
       border: 1px solid rgba(148, 163, 184, 0.7);
       background: #f9fafb;
-      color: var(--text-soft);
+      color: #64748b;
     }
 
     .pill-tag-dot {
@@ -474,7 +492,7 @@
 
     .mini-list {
       font-size: 0.88rem;
-      color: var(--text-muted);
+      color: #64748b;
       margin-top: 6px;
     }
 
@@ -486,8 +504,6 @@
     .mini-list li + li {
       margin-top: 2px;
     }
-
-    /* Future grid */
 
     .future-grid {
       display: grid;
@@ -508,7 +524,7 @@
       font-size: 0.68rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--text-soft);
+      color: #94a3b8;
       margin-bottom: 4px;
     }
 
@@ -520,13 +536,13 @@
 
     .future-note {
       font-size: 0.82rem;
-      color: var(--text-muted);
+      color: #6b7280;
     }
 
     footer {
       margin-top: 18px;
       font-size: 0.78rem;
-      color: var(--text-soft);
+      color: #94a3b8;
       display: flex;
       justify-content: space-between;
       gap: 10px;
@@ -536,7 +552,7 @@
     }
 
     footer a {
-      color: var(--text-soft);
+      color: inherit;
       text-decoration: none;
     }
 
@@ -547,16 +563,19 @@
     /* Responsive */
 
     @media (max-width: 900px) {
-      .hero-inner {
+      .hero-main {
         grid-template-columns: minmax(0, 1fr);
       }
       .hero-left {
         order: 2;
-        padding: 20px 18px 18px;
+        padding: 24px 18px 22px;
       }
       .hero-right {
         order: 1;
         min-height: 240px;
+      }
+      .info-strip {
+        grid-template-columns: minmax(0, 1fr);
       }
       .features-grid,
       .future-grid {
@@ -578,7 +597,7 @@
       .nav-links {
         flex-wrap: wrap;
       }
-      main section.panel {
+      section.panel {
         padding: 18px 16px 16px;
       }
     }
@@ -611,49 +630,31 @@
     </header>
 
     <main>
-      <!-- HERO with big photo -->
-      <section class="hero" id="mhv">
-        <div class="hero-inner">
+      <!-- HERO LIKE MEDICENTER -->
+      <section class="hero-wrapper" id="mhv">
+        <div class="hero-main">
           <div class="hero-left">
             <div class="hero-kicker">Patient-owned health · AI-assisted clarity</div>
-            <div class="hero-app-label">MyHealthVaultAI</div>
-            <h1 class="hero-title">
-              <span>Your health, in one intelligent vault.</span>
-            </h1>
+            <h1 class="hero-title">MyHealthVaultAI gives patients their story back.</h1>
             <p class="hero-subtitle">
-              A premium, patient-owned health app that keeps medications, history,
-              documents, and monitoring in one place — built by a practicing PA-C
-              to fit the way modern clinics actually work.
+              A premium health vault where patients keep medications, history,
+              documents, and monitoring in one place — designed by a practicing PA-C
+              to fit how real clinics run.
             </p>
             <ul class="hero-bullets">
-              <li>
-                <span class="hero-bullet-dot"></span>
-                <span>Store meds, allergies, and full history in a clean, portable format.</span>
-              </li>
-              <li>
-                <span class="hero-bullet-dot"></span>
-                <span>Scan labs and visit summaries with OCR instead of paper piles.</span>
-              </li>
-              <li>
-                <span class="hero-bullet-dot"></span>
-                <span>Use Bluetooth devices for real-time vitals and visit context.</span>
-              </li>
+              <li><span class="hero-bullet-dot"></span><span>Organize meds, allergies, and full medical history in a clean, shareable format.</span></li>
+              <li><span class="hero-bullet-dot"></span><span>Scan labs and visit summaries with OCR instead of stacking paper.</span></li>
+              <li><span class="hero-bullet-dot"></span><span>Use Bluetooth devices for vitals that follow you into every appointment.</span></li>
             </ul>
-            <div class="hero-status-row">
-              <div class="status-pill">
-                <span class="status-pill-dot"></span>
-                <span>In active build · Preparing for launch</span>
-              </div>
+            <div class="hero-status">
+              <span class="hero-status-dot"></span>
+              <span>In active build · Launch planning underway</span>
             </div>
-            <p class="hero-caption">
-              App is approximately 85–90% completed. Current focus: integrations,
-              safety checks, and launch planning for patients and providers.
-            </p>
           </div>
 
           <div class="hero-right">
             <div class="hero-photo">
-              <!-- Make sure this exists in your repo -->
+              <!-- Make sure this file exists in your repo -->
               <img src="sloane-bio.png" alt="Sloane Sterling" />
               <div class="hero-photo-gradient"></div>
               <div class="hero-photo-badge">
@@ -664,9 +665,38 @@
             </div>
           </div>
         </div>
+
+        <!-- Colored info strip (replacing Emergency / Timetable / Hours) -->
+        <div class="info-strip">
+          <div class="info-card info-1">
+            <h3>Patient health vault</h3>
+            <p>
+              Medications, allergies, surgeries, and long-term history stored in one
+              structured, portable record patients control.
+            </p>
+            <div class="info-meta">Built to travel with you between visits and providers.</div>
+          </div>
+          <div class="info-card info-2">
+            <h3>Visit prep &amp; documents</h3>
+            <p>
+              OCR for labs and imaging, plus clean summaries that reduce repeated
+              questions at the front desk and in the exam room.
+            </p>
+            <div class="info-meta">Less time catching up, more time on real care.</div>
+          </div>
+          <div class="info-card info-3">
+            <h3>EMR-aware &amp; real-time</h3>
+            <p>
+              Designed to align with common EMR systems and bring Bluetooth vitals
+              into the conversation without adding extra work.
+            </p>
+            <div class="info-meta">Supports the way clinics already operate today.</div>
+          </div>
+        </div>
       </section>
 
-      <!-- WHAT IT DOES -->
+      <!-- KEEPING THE LOWER SECTIONS, BUT THEY’RE CLEANER NOW -->
+
       <section class="panel">
         <div class="sec-header">
           <h2 class="sec-title">What MyHealthVaultAI does</h2>
@@ -674,9 +704,9 @@
         </div>
         <div class="sec-body">
           <p>
-            MyHealthVaultAI is a standalone health app patients can download themselves.
-            It’s built to return information back to the person living the life — while
-            aligning with the EMR environments most providers already use.
+            MyHealthVaultAI is a standalone health app patients download themselves.
+            It returns information back to the person living the life — while aligning
+            with the EMR environments most providers already use.
           </p>
         </div>
 
@@ -737,7 +767,6 @@
         </div>
       </section>
 
-      <!-- PATIENTS & PROVIDERS -->
       <section class="panel" id="patients-providers">
         <div class="sec-header">
           <h2 class="sec-title">For patients &amp; providers</h2>
@@ -777,7 +806,6 @@
         </div>
       </section>
 
-      <!-- FOUNDER STORY -->
       <section class="panel" id="founder-story">
         <div class="sec-header">
           <h2 class="sec-title">Founder story</h2>
@@ -798,7 +826,6 @@
         </div>
       </section>
 
-      <!-- FUTURE -->
       <section class="panel" id="future">
         <div class="sec-header">
           <h2 class="sec-title">Future developments</h2>
