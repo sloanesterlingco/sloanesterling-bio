@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/webp" href="favicon_orbit_glow.webp" />
+  <link rel="icon" type="image/webp" href="favicon_orbit_glow_transparent.webp" />
   <meta charset="UTF-8" />
-  <title>Sloane Sterling | Official Site</title>
+  <title>MyHealthVaultAI · Sloane Sterling</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Sloane Sterling – AI-powered creator, performance-focused fitness energy, and solo travel storytelling. Official site and future developments."
+    content="MyHealthVaultAI by Sloane Sterling – a patient-owned, AI-powered health vault for medications, history, documents, and real-time monitoring, built to integrate with modern EMR systems."
   />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Favicon (animated orbit glow, optional) -->
+  <link rel="icon" type="image/webp" href="favicon_orbit_glow_transparent.webp" />
+
   <style>
     :root {
-      --bg: #050508;
-      --bg-alt: #0b0b11;
-      --accent: #f97316;
-      --accent-soft: rgba(249, 115, 22, 0.14);
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-      --radius-xl: 20px;
-      --radius-2xl: 28px;
-      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.8);
+      --bg: #f3f4f6;
+      --bg-alt: #ffffff;
+      --bg-soft: #f9fafb;
+      --border-soft: #e5e7eb;
+      --border-strong: #cbd5e1;
+      --accent: #2563eb;
+      --accent-soft: rgba(37, 99, 235, 0.12);
+      --accent-strong: #1d4ed8;
+      --accent-green: #16a34a;
+      --text-main: #0f172a;
+      --text-muted: #6b7280;
+      --text-soft: #94a3b8;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.12);
     }
 
     * {
@@ -30,136 +42,213 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Inter", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
-      color: var(--text);
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background:
+        radial-gradient(circle at top, #e5f0ff 0, #f3f4f6 40%, #e5e7eb 100%);
+      color: var(--text-main);
       min-height: 100vh;
-      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
-      padding: 24px;
+      padding: 24px 16px 40px;
     }
 
     .page {
-      max-width: 960px;
+      max-width: 1120px;
       margin: 0 auto;
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      margin-bottom: 32px;
-    }
-
-    .brand {
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    nav a {
-      font-size: 0.9rem;
-      color: var(--muted);
+    a {
+      color: inherit;
       text-decoration: none;
-      margin-left: 18px;
-      position: relative;
-      padding-bottom: 4px;
     }
 
-    nav a::after {
+    /* NAV */
+
+    .nav-shell {
+      position: sticky;
+      top: 10px;
+      z-index: 30;
+      margin-bottom: 24px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 999px;
+      border: 1px solid rgba(226, 232, 240, 0.9);
+      box-shadow: 0 10px 35px rgba(148, 163, 184, 0.25);
+      padding: 10px 18px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-logo-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #bfdbfe, #1d4ed8);
+      box-shadow: 0 0 12px rgba(37, 99, 235, 0.6);
+      position: relative;
+    }
+
+    .nav-logo-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 999px;
+      border: 1px solid rgba(191, 219, 254, 0.8);
+      opacity: 0.7;
+    }
+
+    .nav-title {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-title-main {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0f172a;
+    }
+
+    .nav-title-sub {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .nav-links a::after {
       content: "";
       position: absolute;
       left: 0;
       bottom: 0;
-      width: 0;
       height: 2px;
+      width: 0;
       border-radius: 999px;
-      background: linear-gradient(90deg, var(--accent), #fb7185);
+      background: linear-gradient(90deg, var(--accent), #38bdf8);
       transition: width 0.18s ease-out;
     }
 
-    nav a:hover::after {
+    .nav-links a:hover::after {
       width: 100%;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      background: rgba(239, 246, 255, 0.9);
+      color: var(--accent-strong);
+      font-weight: 500;
+    }
+
+    .nav-cta-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent-green);
+      box-shadow: 0 0 8px rgba(22, 163, 74, 0.8);
     }
 
     main {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 26px;
+      margin-top: 8px;
     }
+
+    /* HERO */
 
     .hero {
-      border-radius: var(--radius-2xl);
-      background: radial-gradient(circle at top left, #111827, #020617 40%, #000);
-      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at top left, #e5edff 0, #ffffff 45%, #e5e7eb 100%);
+      border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft);
-      padding: 32px 28px 28px;
+      padding: 28px 26px 26px;
       display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-      gap: 32px;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 30px;
       align-items: center;
     }
 
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      font-size: 0.7rem;
+    .hero-left-kicker {
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .hero-tag-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--accent);
-      box-shadow: 0 0 12px rgba(249, 115, 22, 0.9);
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 4vw, 3rem);
-      line-height: 1.1;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
       margin-bottom: 10px;
     }
 
-    .hero h1 span {
-      background: linear-gradient(135deg, #fef3c7, #f97316, #fb7185);
+    .hero-title {
+      font-size: clamp(2.1rem, 3.4vw, 2.6rem);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #0f172a, #1d4ed8);
       -webkit-background-clip: text;
       color: transparent;
     }
 
     .hero-subtitle {
       font-size: 0.98rem;
-      color: var(--muted);
-      max-width: 32rem;
-      margin-bottom: 18px;
+      color: var(--text-muted);
+      max-width: 30rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
     }
 
-    .hero-pills {
-      display: flex;
-      flex-wrap: wrap;
+    .hero-points {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
       gap: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
-    .pill {
-      font-size: 0.75rem;
-      padding: 5px 10px;
+    .hero-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .hero-point-bullet {
+      margin-top: 4px;
+      width: 8px;
+      height: 8px;
       border-radius: 999px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.8);
+      background: linear-gradient(135deg, var(--accent), #38bdf8);
+      box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
     }
 
     .hero-actions {
@@ -167,262 +256,397 @@
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
-    }
-
-    .btn-primary,
-    .btn-ghost {
-      font-size: 0.85rem;
-      padding: 9px 16px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      cursor: default;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
+      margin-top: 4px;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #fb7185);
-      color: #0b0b11;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      color: white;
+      font-size: 0.88rem;
       font-weight: 600;
+      cursor: default;
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
     }
 
-    .btn-ghost {
-      border-color: rgba(55, 65, 81, 0.9);
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.7);
+    .btn-tagline {
+      font-size: 0.8rem;
+      color: var(--text-soft);
     }
 
-    /* ===== HERO RIGHT – HULA HOOP ORBIT AROUND BIO PIC ===== */
+    .hero-caption {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-top: 10px;
+      max-width: 24rem;
+    }
 
-    .hero-avatar {
-      position: relative;
+    /* HERO RIGHT – FOUNDER + APP CARD */
+
+    .hero-right {
       display: flex;
       flex-direction: column;
+      gap: 14px;
+      align-items: stretch;
+    }
+
+    .founder-card {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 14px;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 10px;
-      border-radius: var(--radius-xl);
-      background: radial-gradient(circle at top, #1f2937, #020617 65%);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
-      overflow: hidden;
+      padding: 12px 14px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #ffffff, #eef2ff);
+      border: 1px solid rgba(191, 219, 254, 0.9);
     }
 
-    .orbit-wrapper {
-      position: relative;
-      width: 260px;
-      height: 260px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* outer soft ring */
-    .orbit-ring.outer {
-      position: absolute;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      border: 1px solid rgba(249, 250, 251, 0.16);
-      box-shadow: 0 0 20px rgba(15, 23, 42, 0.9);
-    }
-
-    /* main solid ring – tight “hula hoop” */
-    .orbit-ring.solid {
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: 1px solid rgba(249, 250, 251, 0.95);
-      box-shadow: 0 0 16px rgba(249, 250, 251, 0.32);
-    }
-
-    /* inner dashed ring – just inside */
-    .orbit-ring.dashed {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      border: 1px dashed rgba(249, 250, 251, 0.85);
-      opacity: 0.95;
-    }
-
-    /* Track for green dot – between solid & dashed rings */
-    .orbit-track {
-      position: absolute;
-      width: 210px;   /* between 200 and 220 = tight lane */
-      height: 210px;
-      border-radius: 50%;
-      animation: orbit-spin 14s linear infinite;
-    }
-
-    .orbit-dot {
-      position: absolute;
-      top: -7px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 10px;
-      height: 10px;
+    .founder-photo-shell {
+      width: 70px;
+      height: 70px;
       border-radius: 999px;
-      background: #22c55e; /* GREEN dot */
-      box-shadow:
-        0 0 18px rgba(34, 197, 94, 0.95),
-        0 0 32px rgba(34, 197, 94, 0.7);
+      padding: 2px;
+      background: radial-gradient(circle at top, #e0f2fe, #1d4ed8);
+      box-shadow: 0 10px 20px rgba(148, 163, 184, 0.6);
     }
 
-    @keyframes orbit-spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    /* Bio image in the center */
-
-    .orbit-photo-shell {
-      position: relative;
-      width: 190px;
-      height: 190px;
-      border-radius: 50%;
-      padding: 6px;
-      background: radial-gradient(circle at top, #f9fafb, #d1d5db);
-      box-shadow:
-        0 16px 32px rgba(0, 0, 0, 0.9),
-        0 0 0 1px rgba(15, 23, 42, 1);
-    }
-
-    .orbit-photo-inner {
+    .founder-photo-inner {
       width: 100%;
       height: 100%;
-      border-radius: 50%;
+      border-radius: 999px;
       overflow: hidden;
-      border: 2px solid #020617;
-      background: #020617;
+      border: 2px solid #ffffff;
+      background: #0f172a;
     }
 
-    .orbit-photo-inner img {
-      display: block;
+    .founder-photo-inner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
-    .avatar-badge {
+    .founder-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .founder-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .founder-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .founder-note {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .app-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: linear-gradient(160deg, #ffffff, #eff6ff);
+      padding: 14px 14px 12px;
+      box-shadow: 0 14px 30px rgba(148, 163, 184, 0.32);
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 14px;
+      align-items: center;
+    }
+
+    .app-card-header {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-soft);
+      margin-bottom: 6px;
+    }
+
+    .app-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .app-card-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .app-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .app-tag {
       font-size: 0.72rem;
-      padding: 4px 10px;
+      padding: 3px 8px;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(248, 250, 252, 0.9);
+      color: var(--text-soft);
+    }
+
+    .app-phone {
+      justify-self: end;
+      width: 120px;
+      height: 220px;
+      border-radius: 26px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: linear-gradient(180deg, #0f172a, #111827);
+      padding: 8px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.4);
+    }
+
+    .app-phone-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      background: radial-gradient(circle at top, #1d4ed8, #020617);
+      padding: 10px 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       color: #e5e7eb;
-      text-align: center;
+      font-size: 0.7rem;
     }
 
-    /* ===== SECTIONS ===== */
-
-    section {
-      border-radius: var(--radius-2xl);
-      background: linear-gradient(155deg, var(--bg-alt), #020617 60%, #000 100%);
-      border: 1px solid var(--border);
-      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.8);
-      padding: 26px 24px 24px;
+    .app-phone-pill {
+      align-self: center;
+      width: 40%;
+      height: 3px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.8);
+      margin-bottom: 4px;
     }
 
-    .section-header {
+    .app-phone-section-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #bfdbfe;
+      margin-bottom: 4px;
+    }
+
+    .app-phone-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .app-phone-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 4px;
+      font-size: 0.67rem;
+    }
+
+    .app-phone-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-top: 4px;
+    }
+
+    .app-phone-chip {
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .app-phone-footer {
+      font-size: 0.63rem;
+      color: #bfdbfe;
+      opacity: 0.9;
+    }
+
+    /* GENERIC SECTIONS */
+
+    section.panel {
+      border-radius: var(--radius-xl);
+      background: var(--bg-alt);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 20px 20px;
+    }
+
+    .sec-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 16px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
-    .section-title {
-      font-size: 1.1rem;
-      font-weight: 600;
+    .sec-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #0f172a;
     }
 
-    .section-label {
+    .sec-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-soft);
+    }
+
+    .sec-body {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .sec-body p + p {
+      margin-top: 10px;
+    }
+
+    /* FEATURES GRID */
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .feature-card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: var(--bg-soft);
+      padding: 12px 12px 10px;
+      font-size: 0.9rem;
+    }
+
+    .feature-label {
       font-size: 0.72rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: var(--muted);
+      color: var(--text-soft);
+      margin-bottom: 4px;
     }
 
-    .section-body {
-      font-size: 0.95rem;
-      color: #e5e7eb;
+    .feature-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text-main);
     }
 
-    .section-body p + p {
-      margin-top: 12px;
+    .feature-note {
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
+
+    /* SPLIT GRID */
+
+    .split-grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+      gap: 16px;
+      margin-top: 6px;
+    }
+
+    .pill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: #f9fafb;
+      color: var(--text-soft);
+    }
+
+    .pill-tag-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .mini-list {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .mini-list ul {
+      padding-left: 1.1rem;
+      margin-top: 2px;
+    }
+
+    .mini-list li + li {
+      margin-top: 2px;
+    }
+
+    /* ROADMAP / FUTURE */
 
     .future-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      gap: 12px;
       margin-top: 6px;
     }
 
     .future-card {
-      border-radius: 16px;
-      border: 1px solid rgba(55, 65, 81, 0.9);
-      background: radial-gradient(circle at top, var(--accent-soft), #020617);
-      padding: 14px 12px;
-      font-size: 0.85rem;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      background: #f8fafc;
+      padding: 11px 11px 9px;
+      font-size: 0.86rem;
     }
 
     .future-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
       font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .future-tag-dot {
-      width: 5px;
-      height: 5px;
-      border-radius: 999px;
-      background: var(--accent);
+      letter-spacing: 0.15em;
+      color: var(--text-soft);
+      margin-bottom: 4px;
     }
 
     .future-title {
       font-weight: 600;
       margin-bottom: 4px;
-      color: #fefce8;
-    }
-
-    .future-eta {
-      font-size: 0.75rem;
-      color: #e5e7eb;
-      margin-bottom: 4px;
+      color: var(--text-main);
     }
 
     .future-note {
-      font-size: 0.8rem;
-      color: var(--muted);
+      font-size: 0.82rem;
+      color: var(--text-muted);
     }
 
     footer {
-      max-width: 960px;
-      margin: 16px auto 0;
+      margin-top: 18px;
       font-size: 0.78rem;
-      color: var(--muted);
+      color: var(--text-soft);
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
       padding-top: 10px;
-      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      border-top: 1px solid #e5e7eb;
     }
 
     footer a {
-      color: var(--muted);
+      color: var(--text-soft);
       text-decoration: none;
     }
 
@@ -430,200 +654,367 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 768px) {
-      body {
-        padding: 18px;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-
-      nav {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-
-      nav a {
-        margin-left: 0;
-      }
-
+    @media (max-width: 900px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
-        padding: 22px 18px 18px;
       }
-
-      .hero-avatar {
-        order: -1;
-        margin-bottom: 12px;
+      .app-card {
+        grid-template-columns: minmax(0, 1fr);
       }
-
-      section {
-        padding: 20px 18px 18px;
+      .app-phone {
+        justify-self: start;
       }
-
+      .split-grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .features-grid,
       .future-grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 18px 12px 30px;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+      }
+      .hero {
+        padding: 22px 18px 18px;
+      }
+      section.panel {
+        padding: 18px 16px 16px;
       }
     }
   </style>
 </head>
 <body>
   <div class="page">
-    <header>
-      <div class="brand">SLOANE STERLING</div>
+    <header class="nav-shell">
       <nav>
-        <a href="#bio">Bio</a>
-        <a href="#future">Future Developments</a>
+        <div class="nav-left">
+          <div class="nav-logo-dot">
+            <div class="nav-logo-ring"></div>
+          </div>
+          <div class="nav-title">
+            <div class="nav-title-main">MyHealthVaultAI</div>
+            <div class="nav-title-sub">By Sloane Sterling</div>
+          </div>
+        </div>
+        <div class="nav-links">
+          <a href="#mhv">Product</a>
+          <a href="#patients-providers">Patients & Providers</a>
+          <a href="#founder">Founder</a>
+          <a href="#future">Future</a>
+        </div>
+        <div class="nav-cta">
+          <span class="nav-cta-dot"></span>
+          <span>Launch prep · App ~90% built</span>
+        </div>
       </nav>
     </header>
 
     <main>
       <!-- HERO -->
-      <section class="hero">
-        <div>
-          <div class="hero-tag">
-            <span class="hero-tag-dot"></span>
-            <span>In active development</span>
-          </div>
-          <h1><span>Sloane Sterling</span></h1>
+      <section class="hero" id="mhv">
+        <div class="hero-left">
+          <div class="hero-left-kicker">Patient-owned health · AI-assisted clarity</div>
+          <h1 class="hero-title"><span>MyHealthVaultAI</span></h1>
           <p class="hero-subtitle">
-            AI-powered creator with high-performance fitness energy, solo travel obsession,
-            and a relentless bias toward progress. This is the home base for what’s live now
-            — and what’s being built next.
+            A premium, patient-owned health vault that keeps medications, history,
+            documents, and real-time monitoring in one place — and is being built to
+            speak the same language as modern EMR systems.
           </p>
-          <div class="hero-pills">
-            <span class="pill">Performance-driven storytelling</span>
-            <span class="pill">Fitness x solo travel</span>
-            <span class="pill">AI-native creative workflows</span>
+          <div class="hero-points">
+            <div class="hero-point">
+              <div class="hero-point-bullet"></div>
+              <div>Store medications, allergies, medical/surgical/social history, and visits in a structured, portable format.</div>
+            </div>
+            <div class="hero-point">
+              <div class="hero-point-bullet"></div>
+              <div>Use Bluetooth devices for real-time health monitoring and bring that context into every appointment.</div>
+            </div>
+            <div class="hero-point">
+              <div class="hero-point-bullet"></div>
+              <div>Scan labs, imaging, and visit summaries with OCR so your health story doesn’t live in paper piles.</div>
+            </div>
           </div>
+
           <div class="hero-actions">
-            <span class="btn-primary">Site v1 – Soft Launch</span>
-            <span class="btn-ghost">More experiences coming soon</span>
-          </div>
-        </div>
-
-        <!-- HERO RIGHT: bio pic with “hula hoop” orbit -->
-        <aside class="hero-avatar">
-          <div class="orbit-wrapper">
-            <div class="orbit-ring outer"></div>
-            <div class="orbit-ring solid"></div>
-            <div class="orbit-ring dashed"></div>
-            <div class="orbit-track">
-              <div class="orbit-dot"></div>
+            <div class="btn-primary">
+              Join the early interest list
             </div>
-            <div class="orbit-photo-shell">
-              <div class="orbit-photo-inner">
-                <!-- Make sure this file exists in the repo -->
-                <img src="sloane-bio.png" alt="Portrait of Sloane Sterling" />
-              </div>
+            <div class="btn-tagline">
+              MyHealthVaultAI · Patient-first healthcare system in active build.
             </div>
           </div>
-          <div class="avatar-badge">Personal brand • sloanesterling.com</div>
-        </aside>
-      </section>
 
-      <!-- BIO -->
-      <section id="bio">
-        <div class="section-header">
-          <h2 class="section-title">Bio</h2>
-          <span class="section-label">Who I am</span>
-        </div>
-        <div class="section-body">
-          <p>
-            I’m Sloane Sterling — an AI-native creator built around performance, momentum, and
-            solo travel freedom. My universe blends high-intensity training energy with
-            smart, systems-driven creativity. Think: clean aesthetics, sharp execution, and
-            no time wasted on beige motivation.
-          </p>
-          <p>
-            My work focuses on turning ambition into something you can actually see:
-            workouts that stack, habits that hold under pressure, and digital content that
-            feels like it’s moving somewhere — not just posting to exist. If you’re into
-            optimized routines, flight notifications, and big main-character energy,
-            you’re in the right place.
+          <p class="hero-caption">
+            App is approximately 85–90% completed. Current focus: integrations, safety checks,
+            and launch strategy for patients and clinics.
           </p>
         </div>
-      </section>
 
-      <!-- FUTURE DEVELOPMENTS -->
-      <section id="future">
-        <div class="section-header">
-          <h2 class="section-title">Future Developments</h2>
-          <span class="section-label">What’s coming</span>
-        </div>
-        <div class="section-body">
-          <p>
-            This site is intentionally simple right now. It’s the “base camp” for a larger
-            ecosystem that’s being built in the background. Here’s a preview of what’s
-            on the roadmap:
-          </p>
-
-          <div class="future-grid">
-            <article class="future-card">
-              <div class="future-tag">
-                <span class="future-tag-dot"></span>
-                <span>Coming soon</span>
+        <div class="hero-right">
+          <!-- Founder card -->
+          <div class="founder-card" id="founder">
+            <div class="founder-photo-shell">
+              <div class="founder-photo-inner">
+                <!-- Make sure this exists in the repo -->
+                <img src="sloane-bio.png" alt="Photo of Sloane Sterling" />
               </div>
-              <div class="future-title">Luxe-style Training Hub</div>
-              <div class="future-eta">Phase 1: Structured overview</div>
-              <div class="future-note">
-                A simple, no-fluff breakdown of how I think about training, recovery,
-                and performance — built for people who want results, not noise.
+            </div>
+            <div class="founder-meta">
+              <div class="founder-name">Sloane Sterling</div>
+              <div class="founder-role">Founder · Systems thinker · AI healthcare</div>
+              <div class="founder-note">
+                Building tools that give patients more control while making every minute in the clinic count.
               </div>
-            </article>
-
-            <article class="future-card">
-              <div class="future-tag">
-                <span class="future-tag-dot"></span>
-                <span>In exploration</span>
-              </div>
-              <div class="future-title">Solo Travel Systems</div>
-              <div class="future-eta">Ideas: packing, planning, mindset</div>
-              <div class="future-note">
-                Frameworks for traveling solo without chaos: packing logic, airport flow,
-                safety protocols, and how to actually enjoy the in-between moments.
-              </div>
-            </article>
-
-            <article class="future-card">
-              <div class="future-tag">
-                <span class="future-tag-dot"></span>
-                <span>Later roadmap</span>
-              </div>
-              <div class="future-title">Creator Ops & Workflows</div>
-              <div class="future-eta">Future build</div>
-              <div class="future-note">
-                Behind-the-scenes breakdowns of how I use AI tools, templates, and systems
-                to produce more content with less friction.
-              </div>
-            </article>
+            </div>
           </div>
 
-          <p style="margin-top: 14px; font-size: 0.9rem; color: #9ca3af;">
-            This page will evolve over time. For now, treat it as a pin on the map:
-            a simple starting point with more structure, visuals, and releases on the way.
+          <!-- App "phone" concept -->
+          <div class="app-card">
+            <div>
+              <div class="app-card-header">Preview · Patient app</div>
+              <div class="app-card-title">Your health, in one intelligent vault</div>
+              <div class="app-card-sub">
+                Designed as a standalone app patients download themselves — with the intent
+                to integrate into the EMR environments their providers already use.
+              </div>
+              <div class="app-card-tags">
+                <span class="app-tag">Medication tracking</span>
+                <span class="app-tag">Contraindication alerts</span>
+                <span class="app-tag">OCR for labs & imaging</span>
+                <span class="app-tag">Bluetooth vitals</span>
+              </div>
+            </div>
+            <div class="app-phone" aria-hidden="true">
+              <div class="app-phone-inner">
+                <div>
+                  <div class="app-phone-pill"></div>
+                  <div class="app-phone-section-label">Today · Summary</div>
+                  <ul class="app-phone-list">
+                    <li><span>Medications</span><span>7 active</span></li>
+                    <li><span>Allergies</span><span>2 noted</span></li>
+                    <li><span>Vitals (BT)</span><span>Stable</span></li>
+                  </ul>
+                </div>
+                <div>
+                  <div class="app-phone-section-label">Next visit prep</div>
+                  <div class="app-phone-chip-row">
+                    <span class="app-phone-chip">Visit summary</span>
+                    <span class="app-phone-chip">Questions to ask</span>
+                    <span class="app-phone-chip">Recent labs (OCR)</span>
+                  </div>
+                </div>
+                <div class="app-phone-footer">
+                  MyHealthVaultAI · Designed to talk to the systems your clinic already uses.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- WHAT IT IS / FEATURES -->
+      <section class="panel">
+        <div class="sec-header">
+          <h2 class="sec-title">What MyHealthVaultAI does</h2>
+          <div class="sec-label">Core functions</div>
+        </div>
+        <div class="sec-body">
+          <p>
+            MyHealthVaultAI is a standalone health app patients can download themselves. It’s built
+            to return health information back to the person living the life — while respecting how
+            busy clinics and providers actually operate behind the scenes.
           </p>
+          <p>
+            The system is being shaped to integrate with the electronic medical record platforms
+            that most providers already use, helping reduce friction at check-in, during the visit,
+            and at checkout.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <div class="feature-label">01 · Health vault</div>
+            <div class="feature-title">All your history in one place</div>
+            <div class="feature-note">
+              Store medications, allergies, medical history, surgical history, social history,
+              hospitalizations, and office visits — in a format that can be shared cleanly and consistently.
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-label">02 · Safety intelligence</div>
+            <div class="feature-title">Medication checks & alerts</div>
+            <div class="feature-note">
+              Track your active medications and surface possible contraindications or points of concern
+              before they become issues to discuss with your provider.
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-label">03 · Real-time data</div>
+            <div class="feature-title">Bluetooth health monitoring</div>
+            <div class="feature-note">
+              Connect compatible Bluetooth devices for real-time vitals and tracking. Bring richer context
+              into your appointments without extra effort.
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-label">04 · Document capture</div>
+            <div class="feature-title">OCR for labs & imaging</div>
+            <div class="feature-note">
+              Use your camera to scan lab results, imaging reports, and office visit summaries.
+              MyHealthVaultAI uses OCR to read and organize them inside your vault.
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-label">05 · Visit workflow</div>
+            <div class="feature-title">Structured visit prep</div>
+            <div class="feature-note">
+              Generate a clean visit summary for check-in, reduce repeated questions at the front desk,
+              and streamline the flow from reception to checkout.
+            </div>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-label">06 · EMR awareness</div>
+            <div class="feature-title">Built for integration</div>
+            <div class="feature-note">
+              The system is being designed to align with the EMR environments most providers already use,
+              so better experiences can live inside existing workflows—not outside them.
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PATIENTS & PROVIDERS -->
+      <section class="panel" id="patients-providers">
+        <div class="sec-header">
+          <h2 class="sec-title">For patients & providers</h2>
+          <div class="sec-label">Two sides of the same system</div>
+        </div>
+        <div class="split-grid-2">
+          <div>
+            <div class="pill-tag">
+              <span class="pill-tag-dot"></span>
+              <span>Patients</span>
+            </div>
+            <div class="sec-body mini-list">
+              <p><strong>Own your story.</strong> No more trying to remember every dose, date, and surgery at every visit.</p>
+              <ul>
+                <li>Keep an updated, accurate medication list.</li>
+                <li>Log allergies, surgeries, and long-term conditions.</li>
+                <li>Attach labs, imaging, and visit notes with OCR.</li>
+                <li>Track vitals via Bluetooth and see trends over time.</li>
+              </ul>
+            </div>
+          </div>
+          <div>
+            <div class="pill-tag">
+              <span class="pill-tag-dot"></span>
+              <span>Providers & clinics</span>
+            </div>
+            <div class="sec-body mini-list">
+              <p><strong>Upgrade the visit without changing your mission.</strong></p>
+              <ul>
+                <li>Cleaner intake with structured, patient-provided histories.</li>
+                <li>Reduced time spent re-asking baseline questions.</li>
+                <li>Medication context with potential flags surfaced early.</li>
+                <li>Potential EMR-aligned data that maps into existing workflows.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOUNDER STORY -->
+      <section class="panel" id="founder-story">
+        <div class="sec-header">
+          <h2 class="sec-title">Founder story</h2>
+          <div class="sec-label">Why this exists</div>
+        </div>
+        <div class="sec-body">
+          <p>
+            I’m Sloane Sterling — a systems-minded builder focused on how health, technology, and real
+            life intersect. MyHealthVaultAI was born from seeing how much of healthcare gets lost in
+            translation: between what patients remember, what providers have time to ask, and what
+            actually ends up inside the chart.
+          </p>
+          <p>
+            This app is my answer to that gap. It’s designed to give patients control over their own
+            health story while respecting the realities of a busy clinic — a way to help people
+            organize their medical lives and help providers walk into the room with better
+            information from the start.
+          </p>
+          <p>
+            The goal isn’t to replace care. It’s to clear the path so real care can happen more
+            efficiently, with less friction and more clarity on both sides of the exam room door.
+          </p>
+        </div>
+      </section>
+
+      <!-- FUTURE / LUXESCULPT ETC. -->
+      <section class="panel" id="future">
+        <div class="sec-header">
+          <h2 class="sec-title">Future developments</h2>
+          <div class="sec-label">What’s next</div>
+        </div>
+        <div class="sec-body">
+          <p>
+            MyHealthVaultAI is the primary build in motion. Around it, a wider ecosystem is taking
+            shape — combining health systems, performance, and long-horizon product ideas.
+          </p>
+        </div>
+
+        <div class="future-grid">
+          <article class="future-card">
+            <div class="future-tag">In active build</div>
+            <div class="future-title">MyHealthVaultAI · Patient app</div>
+            <div class="future-note">
+              Focused on completing integrations, refining safety intelligence, and preparing a
+              controlled release that balances patient access with clinical reality.
+            </div>
+          </article>
+
+          <article class="future-card">
+            <div class="future-tag">Long-term apparel track</div>
+            <div class="future-title">LuxeSculpt™ – Activewear line</div>
+            <div class="future-note">
+              A premium women’s activewear line remains on the long-horizon roadmap. Given the capital
+              intensity of apparel, the near-term priority is the digital health system that can scale faster.
+            </div>
+          </article>
+
+          <article class="future-card">
+            <div class="future-tag">Beyond launch</div>
+            <div class="future-title">Provider tools & expansions</div>
+            <div class="future-note">
+              Future possibilities include provider-facing dashboards, deeper EMR integrations, and additional
+              tools that translate between patient reality and chart-level documentation.
+            </div>
+          </article>
         </div>
       </section>
     </main>
+
+    <footer>
+      <span>© <span id="year"></span> Sloane Sterling. All rights reserved.</span>
+      <span>Currently focused on MyHealthVaultAI · Early launch planning in progress.</span>
+    </footer>
   </div>
 
-  <footer>
-    <span>© <span id="year"></span> Sloane Sterling. All rights reserved.</span>
-    <span>
-      Future links:
-      <a href="#" aria-disabled="true">Instagram</a> ·
-      <a href="#" aria-disabled="true">YouTube</a> ·
-      <a href="#" aria-disabled="true">Newsletter</a>
-    </span>
-  </footer>
-
   <script>
-    // Set current year automatically
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
