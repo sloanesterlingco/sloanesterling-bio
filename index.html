@@ -259,19 +259,25 @@
       margin-top: 4px;
     }
 
-    .btn-primary {
+    .status-pill {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 9px 18px;
+      padding: 7px 14px;
       border-radius: 999px;
-      border: none;
-      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-      color: white;
-      font-size: 0.88rem;
-      font-weight: 600;
-      cursor: default;
-      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      background: rgba(239, 246, 255, 0.9);
+      color: var(--accent-strong);
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .status-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent-green);
+      box-shadow: 0 0 8px rgba(22, 163, 74, 0.8);
     }
 
     .btn-tagline {
@@ -286,36 +292,36 @@
       max-width: 24rem;
     }
 
-    /* HERO RIGHT – FOUNDER + APP CARD */
+    /* HERO RIGHT – BIG FOUNDER CARD */
 
     .hero-right {
       display: flex;
-      flex-direction: column;
-      gap: 14px;
-      align-items: stretch;
+      justify-content: center;
     }
 
-    .founder-card {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      gap: 14px;
-      align-items: center;
-      padding: 12px 14px;
-      border-radius: var(--radius-lg);
-      background: linear-gradient(135deg, #ffffff, #eef2ff);
+    .founder-hero {
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, #ffffff, #e0ecff);
       border: 1px solid rgba(191, 219, 254, 0.9);
+      box-shadow: 0 18px 45px rgba(148, 163, 184, 0.45);
+      padding: 18px 18px 16px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1.5fr);
+      gap: 18px;
+      align-items: center;
     }
 
-    .founder-photo-shell {
-      width: 70px;
-      height: 70px;
+    .founder-hero-photo-shell {
+      width: 150px;
+      height: 150px;
       border-radius: 999px;
-      padding: 2px;
+      padding: 3px;
       background: radial-gradient(circle at top, #e0f2fe, #1d4ed8);
-      box-shadow: 0 10px 20px rgba(148, 163, 184, 0.6);
+      box-shadow: 0 18px 35px rgba(37, 99, 235, 0.45);
+      position: relative;
     }
 
-    .founder-photo-inner {
+    .founder-hero-photo-inner {
       width: 100%;
       height: 100%;
       border-radius: 999px;
@@ -324,157 +330,43 @@
       background: #0f172a;
     }
 
-    .founder-photo-inner img {
+    .founder-hero-photo-inner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .founder-meta {
+    .founder-hero-text {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 4px;
     }
 
-    .founder-name {
-      font-size: 0.95rem;
+    .founder-hero-label {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-soft);
+    }
+
+    .founder-hero-name {
+      font-size: 1.05rem;
       font-weight: 600;
       color: #0f172a;
     }
 
-    .founder-role {
-      font-size: 0.8rem;
+    .founder-hero-credentials {
+      font-size: 0.82rem;
       color: var(--text-muted);
+      font-weight: 500;
     }
 
-    .founder-note {
-      font-size: 0.78rem;
-      color: var(--text-soft);
-    }
-
-    .app-card {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-soft);
-      background: linear-gradient(160deg, #ffffff, #eff6ff);
-      padding: 14px 14px 12px;
-      box-shadow: 0 14px 30px rgba(148, 163, 184, 0.32);
-      display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-      gap: 14px;
-      align-items: center;
-    }
-
-    .app-card-header {
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--text-soft);
-      margin-bottom: 6px;
-    }
-
-    .app-card-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .app-card-sub {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 8px;
-    }
-
-    .app-card-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .app-tag {
-      font-size: 0.72rem;
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      background: rgba(248, 250, 252, 0.9);
-      color: var(--text-soft);
-    }
-
-    .app-phone {
-      justify-self: end;
-      width: 120px;
-      height: 220px;
-      border-radius: 26px;
-      border: 1px solid rgba(148, 163, 184, 0.9);
-      background: linear-gradient(180deg, #0f172a, #111827);
-      padding: 8px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.4);
-    }
-
-    .app-phone-inner {
-      width: 100%;
-      height: 100%;
-      border-radius: 20px;
-      background: radial-gradient(circle at top, #1d4ed8, #020617);
-      padding: 10px 8px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      color: #e5e7eb;
-      font-size: 0.7rem;
-    }
-
-    .app-phone-pill {
-      align-self: center;
-      width: 40%;
-      height: 3px;
-      border-radius: 999px;
-      background: rgba(148, 163, 184, 0.8);
-      margin-bottom: 4px;
-    }
-
-    .app-phone-section-label {
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: #bfdbfe;
-      margin-bottom: 4px;
-    }
-
-    .app-phone-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .app-phone-list li {
-      display: flex;
-      justify-content: space-between;
-      gap: 4px;
-      font-size: 0.67rem;
-    }
-
-    .app-phone-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
+    .founder-hero-bio {
       margin-top: 4px;
-    }
-
-    .app-phone-chip {
-      padding: 2px 6px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-    }
-
-    .app-phone-footer {
-      font-size: 0.63rem;
-      color: #bfdbfe;
-      opacity: 0.9;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.7;
     }
 
     /* GENERIC SECTIONS */
@@ -658,18 +550,15 @@
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
-      .app-card {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      .app-phone {
-        justify-self: start;
-      }
       .split-grid-2 {
         grid-template-columns: minmax(0, 1fr);
       }
       .features-grid,
       .future-grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        justify-content: flex-start;
       }
     }
 
@@ -690,6 +579,12 @@
       section.panel {
         padding: 18px 16px 16px;
       }
+      .founder-hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .founder-hero-photo-shell {
+        margin: 0 auto;
+      }
     }
   </style>
 </head>
@@ -702,14 +597,14 @@
             <div class="nav-logo-ring"></div>
           </div>
           <div class="nav-title">
-            <div class="nav-title-main">MyHealthVaultAI</div>
+            <div class="nav-title-main">MYHEALTHVAULTAI</div>
             <div class="nav-title-sub">By Sloane Sterling</div>
           </div>
         </div>
         <div class="nav-links">
           <a href="#mhv">Product</a>
           <a href="#patients-providers">Patients & Providers</a>
-          <a href="#founder">Founder</a>
+          <a href="#founder-story">Founder</a>
           <a href="#future">Future</a>
         </div>
         <div class="nav-cta">
@@ -746,11 +641,12 @@
           </div>
 
           <div class="hero-actions">
-            <div class="btn-primary">
-              Join the early interest list
+            <div class="status-pill">
+              <span class="status-pill-dot"></span>
+              <span>In active build · Preparing for launch</span>
             </div>
             <div class="btn-tagline">
-              MyHealthVaultAI · Patient-first healthcare system in active build.
+              MyHealthVaultAI · Patient-first healthcare system engineered by a practicing PA-C.
             </div>
           </div>
 
@@ -760,63 +656,26 @@
           </p>
         </div>
 
-        <div class="hero-right">
-          <!-- Founder card -->
-          <div class="founder-card" id="founder">
-            <div class="founder-photo-shell">
-              <div class="founder-photo-inner">
+        <div class="hero-right" id="founder">
+          <div class="founder-hero">
+            <div class="founder-hero-photo-shell">
+              <div class="founder-hero-photo-inner">
                 <!-- Make sure this exists in the repo -->
                 <img src="sloane-bio.png" alt="Photo of Sloane Sterling" />
               </div>
             </div>
-            <div class="founder-meta">
-              <div class="founder-name">Sloane Sterling</div>
-              <div class="founder-role">Founder · Systems thinker · AI healthcare</div>
-              <div class="founder-note">
-                Building tools that give patients more control while making every minute in the clinic count.
+            <div class="founder-hero-text">
+              <div class="founder-hero-label">Founder · Health care provider (PA-C)</div>
+              <div class="founder-hero-name">Sloane Sterling</div>
+              <div class="founder-hero-credentials">
+                Healthcare innovator · AI-driven patient advocacy
               </div>
-            </div>
-          </div>
-
-          <!-- App "phone" concept -->
-          <div class="app-card">
-            <div>
-              <div class="app-card-header">Preview · Patient app</div>
-              <div class="app-card-title">Your health, in one intelligent vault</div>
-              <div class="app-card-sub">
-                Designed as a standalone app patients download themselves — with the intent
-                to integrate into the EMR environments their providers already use.
-              </div>
-              <div class="app-card-tags">
-                <span class="app-tag">Medication tracking</span>
-                <span class="app-tag">Contraindication alerts</span>
-                <span class="app-tag">OCR for labs & imaging</span>
-                <span class="app-tag">Bluetooth vitals</span>
-              </div>
-            </div>
-            <div class="app-phone" aria-hidden="true">
-              <div class="app-phone-inner">
-                <div>
-                  <div class="app-phone-pill"></div>
-                  <div class="app-phone-section-label">Today · Summary</div>
-                  <ul class="app-phone-list">
-                    <li><span>Medications</span><span>7 active</span></li>
-                    <li><span>Allergies</span><span>2 noted</span></li>
-                    <li><span>Vitals (BT)</span><span>Stable</span></li>
-                  </ul>
-                </div>
-                <div>
-                  <div class="app-phone-section-label">Next visit prep</div>
-                  <div class="app-phone-chip-row">
-                    <span class="app-phone-chip">Visit summary</span>
-                    <span class="app-phone-chip">Questions to ask</span>
-                    <span class="app-phone-chip">Recent labs (OCR)</span>
-                  </div>
-                </div>
-                <div class="app-phone-footer">
-                  MyHealthVaultAI · Designed to talk to the systems your clinic already uses.
-                </div>
-              </div>
+              <p class="founder-hero-bio">
+                I’m a practicing PA-C and systems thinker building tools that return clarity,
+                control, and confidence back to patients — while giving providers better information
+                from the start. MyHealthVaultAI is designed to live between real life and the EMR,
+                so every visit has less friction and more signal.
+              </p>
             </div>
           </div>
         </div>
@@ -853,7 +712,7 @@
 
           <article class="feature-card">
             <div class="feature-label">02 · Safety intelligence</div>
-            <div class="feature-title">Medication checks & alerts</div>
+            <div class="feature-title">Medication checks &amp; alerts</div>
             <div class="feature-note">
               Track your active medications and surface possible contraindications or points of concern
               before they become issues to discuss with your provider.
@@ -871,7 +730,7 @@
 
           <article class="feature-card">
             <div class="feature-label">04 · Document capture</div>
-            <div class="feature-title">OCR for labs & imaging</div>
+            <div class="feature-title">OCR for labs &amp; imaging</div>
             <div class="feature-note">
               Use your camera to scan lab results, imaging reports, and office visit summaries.
               MyHealthVaultAI uses OCR to read and organize them inside your vault.
@@ -901,7 +760,7 @@
       <!-- PATIENTS & PROVIDERS -->
       <section class="panel" id="patients-providers">
         <div class="sec-header">
-          <h2 class="sec-title">For patients & providers</h2>
+          <h2 class="sec-title">For patients &amp; providers</h2>
           <div class="sec-label">Two sides of the same system</div>
         </div>
         <div class="split-grid-2">
@@ -923,7 +782,7 @@
           <div>
             <div class="pill-tag">
               <span class="pill-tag-dot"></span>
-              <span>Providers & clinics</span>
+              <span>Providers &amp; clinics</span>
             </div>
             <div class="sec-body mini-list">
               <p><strong>Upgrade the visit without changing your mission.</strong></p>
@@ -946,10 +805,10 @@
         </div>
         <div class="sec-body">
           <p>
-            I’m Sloane Sterling — a systems-minded builder focused on how health, technology, and real
-            life intersect. MyHealthVaultAI was born from seeing how much of healthcare gets lost in
-            translation: between what patients remember, what providers have time to ask, and what
-            actually ends up inside the chart.
+            I’m Sloane Sterling — a practicing PA-C and systems-minded builder focused on how health,
+            technology, and real life intersect. MyHealthVaultAI was born from seeing how much of
+            healthcare gets lost in translation: between what patients remember, what providers have
+            time to ask, and what actually ends up inside the chart.
           </p>
           <p>
             This app is my answer to that gap. It’s designed to give patients control over their own
@@ -998,7 +857,7 @@
 
           <article class="future-card">
             <div class="future-tag">Beyond launch</div>
-            <div class="future-title">Provider tools & expansions</div>
+            <div class="future-title">Provider tools &amp; expansions</div>
             <div class="future-note">
               Future possibilities include provider-facing dashboards, deeper EMR integrations, and additional
               tools that translate between patient reality and chart-level documentation.
@@ -1019,3 +878,4 @@
   </script>
 </body>
 </html>
+
